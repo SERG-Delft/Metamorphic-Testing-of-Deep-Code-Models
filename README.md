@@ -10,6 +10,8 @@ This study presents a **systematic literature review (SLR)** on metamorphic test
 
 - **`supplementary-V1.pdf`**: This file contains the **initial dataset**, encompassing all records, including some that were marked as doubtful. Some records have undergone modifications following discussions and double-checking by the authors for the final paper. Therefore, **minor differences may exist** between this dataset and the final tables presented in the published paper.
 
+- **`PreFinal` folder**: This folder contains **two `.bib` files (`Scholar.bib` and `primarystudies.bib`)** with details about the **pre-final papers** considered in our literature review. Some of the papers listed in these files were later removed from the final version after further refinement and selection. However, these files provide **insights into the intermediate stages of our data collection process**, capturing the middle journey of our work.
+
 ## Authors
 
 - **Ali Asgari** (Delft University of Technology) - [Email](mailto:a.asgari-2@tudelft.nl)
