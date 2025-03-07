@@ -1,0 +1,654 @@
+
+@misc{hooda_large_2024,
+	title = {Do {Large} {Code} {Models} {Understand} {Programming} {Concepts}? {A} {Black}-box {Approach}},
+	shorttitle = {Do {Large} {Code} {Models} {Understand} {Programming} {Concepts}?},
+	url = {http://arxiv.org/abs/2402.05980},
+	doi = {10.48550/arXiv.2402.05980},
+	abstract = {Large Language Models' success on text generation has also made them better at code generation and coding tasks. While a lot of work has demonstrated their remarkable performance on tasks such as code completion and editing, it is still unclear as to why. We help bridge this gap by exploring to what degree auto-regressive models understand the logical constructs of the underlying programs. We propose Counterfactual Analysis for Programming Concept Predicates (CACP) as a counterfactual testing framework to evaluate whether Large Code Models understand programming concepts. With only black-box access to the model, we use CACP to evaluate ten popular Large Code Models for four different programming concepts. Our findings suggest that current models lack understanding of concepts such as data flow and control flow.},
+	urldate = {2024-09-11},
+	publisher = {arXiv},
+	author = {Hooda, Ashish and Christodorescu, Mihai and Allamanis, Miltiadis and Wilson, Aaron and Fawaz, Kassem and Jha, Somesh},
+	month = feb,
+	year = {2024},
+	note = {arXiv:2402.05980 [cs]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering},
+	annote = {6 citations
+},
+	annote = {Transformations:
+If-else flip
+independent swap
+break definition and usage
+rename variables to random strings
+shuffle variables
+
+Strategy:
+Unclear how exactly the transformations are applied. After applying the transformations, the last 25\% of the program is cut. 
+
+Metrics:
+To measure model performance, they use unit test performance.
+Effectiveness:
+They show the model performance drop for every kind of transformation. The indenpendent-swap is the least effective. Accuracy drops up to 33 percent.
+Victim models:
+starcoder, several versions of Llama 2 and Llama code, and several versions of PaLM 2
+Downstream languages:
+python
+Downstream tasks:
+code completion
+Challenges/Future work:
+Automatic semantic perserving perturbations, perturbation based data augmentation, do it with more datasets.
+What makes this paper unique:
+They test 10 different code models and show the performance drop per kind of transformation. They show that models do not understand code concepts.
+
+},
+	file = {arXiv Fulltext PDF:files/123/Hooda et al. - 2024 - Do Large Code Models Understand Programming Concepts A Black-box Approach.pdf:application/pdf;arXiv.org Snapshot:files/124/2402.html:text/html},
+}
+
+@misc{srikant_generating_2021,
+	title = {Generating {Adversarial} {Computer} {Programs} using {Optimized} {Obfuscations}},
+	url = {http://arxiv.org/abs/2103.11882},
+	doi = {10.48550/arXiv.2103.11882},
+	abstract = {Machine learning (ML) models that learn and predict properties of computer programs are increasingly being adopted and deployed. These models have demonstrated success in applications such as auto-completing code, summarizing large programs, and detecting bugs and malware in programs. In this work, we investigate principled ways to adversarially perturb a computer program to fool such learned models, and thus determine their adversarial robustness. We use program obfuscations, which have conventionally been used to avoid attempts at reverse engineering programs, as adversarial perturbations. These perturbations modify programs in ways that do not alter their functionality but can be crafted to deceive an ML model when making a decision. We provide a general formulation for an adversarial program that allows applying multiple obfuscation transformations to a program in any language. We develop first-order optimization algorithms to efficiently determine two key aspects -- which parts of the program to transform, and what transformations to use. We show that it is important to optimize both these aspects to generate the best adversarially perturbed program. Due to the discrete nature of this problem, we also propose using randomized smoothing to improve the attack loss landscape to ease optimization. We evaluate our work on Python and Java programs on the problem of program summarization. We show that our best attack proposal achieves a \$52{\textbackslash}\%\$ improvement over a state-of-the-art attack generation approach for programs trained on a seq2seq model. We further show that our formulation is better at training models that are robust to adversarial attacks.},
+	urldate = {2024-09-11},
+	publisher = {arXiv},
+	author = {Srikant, Shashank and Liu, Sijia and Mitrovska, Tamara and Chang, Shiyu and Fan, Quanfu and Zhang, Gaoyuan and O'Reilly, Una-May},
+	month = mar,
+	year = {2021},
+	note = {arXiv:2103.11882 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering},
+	annote = {51 citations
+},
+	annote = {Comment: This work will be published at ICLR 2021},
+	annote = {Transformations:
+rename local variables
+rename function parameters
+rename object fields
+replace boolean literals
+insert print statement
+insert dead code
+Following Henkel et al.
+
+Strategy:
+Use Alternating optimization using some kind of gradient descent method.
+Metrics:
+Attack success rate (ASR) and F1 score
+Effectiveness:
+better than ramakrishnan et al. 2020
+Victim models:
+seq2seq
+code2seq
+Downstream languages:
+python, java
+Downstream tasks:
+code summarization (method name prediction)
+Dataset:
+Python dataset by Raychev et al
+One of the code2vec datasets
+Challenges/Future work:
+not mentioned
+What makes this paper unique:
+They split up the problem in choosing locations and choice of transformation. This problem is then decomposable with alternating optimization. They show that randomized smoothing helps.
+},
+	file = {arXiv Fulltext PDF:files/137/Srikant et al. - 2021 - Generating Adversarial Computer Programs using Optimized Obfuscations.pdf:application/pdf;arXiv.org Snapshot:files/138/2103.html:text/html},
+}
+
+@misc{rabin_testing_2019,
+	title = {Testing {Neural} {Program} {Analyzers}},
+	url = {http://arxiv.org/abs/1908.10711},
+	doi = {10.48550/arXiv.1908.10711},
+	abstract = {Deep neural networks have been increasingly used in software engineering and program analysis tasks. They usually take a program and make some predictions about it, e.g., bug prediction. We call these models neural program analyzers. The reliability of neural programs can impact the reliability of the encompassing analyses. In this paper, we describe our ongoing efforts to develop effective techniques for testing neural programs. We discuss the challenges involved in developing such tools and our future plans. In our preliminary experiment on a neural model recently proposed in the literature, we found that the model is very brittle, and simple perturbations in the input can cause the model to make mistakes in its prediction.},
+	urldate = {2024-09-12},
+	publisher = {arXiv},
+	author = {Rabin, Md Rafiqul Islam and Wang, Ke and Alipour, Mohammad Amin},
+	month = sep,
+	year = {2019},
+	note = {arXiv:1908.10711 [cs, stat]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering, Statistics - Machine Learning},
+	annote = {17 citations
+},
+	annote = {Comment: ASE 2019 Late Breaking Results},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/212/Rabin et al. - 2019 - Testing Neural Program Analyzers.pdf:application/pdf;arXiv.org Snapshot:files/213/1908.html:text/html},
+}
+
+@misc{quiring_misleading_2019,
+	title = {Misleading {Authorship} {Attribution} of {Source} {Code} using {Adversarial} {Learning}},
+	url = {http://arxiv.org/abs/1905.12386},
+	doi = {10.48550/arXiv.1905.12386},
+	abstract = {In this paper, we present a novel attack against authorship attribution of source code. We exploit that recent attribution methods rest on machine learning and thus can be deceived by adversarial examples of source code. Our attack performs a series of semantics-preserving code transformations that mislead learning-based attribution but appear plausible to a developer. The attack is guided by Monte-Carlo tree search that enables us to operate in the discrete domain of source code. In an empirical evaluation with source code from 204 programmers, we demonstrate that our attack has a substantial effect on two recent attribution methods, whose accuracy drops from over 88\% to 1\% under attack. Furthermore, we show that our attack can imitate the coding style of developers with high accuracy and thereby induce false attributions. We conclude that current approaches for authorship attribution are inappropriate for practical application and there is a need for resilient analysis techniques.},
+	urldate = {2024-09-13},
+	publisher = {arXiv},
+	author = {Quiring, Erwin and Maier, Alwin and Rieck, Konrad},
+	month = may,
+	year = {2019},
+	note = {arXiv:1905.12386 [cs, stat]},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Cryptography and Security},
+	annote = {125 citations
+},
+	annote = {Comment: USENIX Security Symposium 2019},
+	annote = {Transformations:
+
+Control transformations:
+replace for/while
+move block to standalone function (name not specified)
+move deepest block to standalone function (name not specified)
+split if statement with logical operands
+
+Declaration Tansformations:
+convert array into C++ vector
+convert C char array to C++ string or vice versa
+promote integral type to next higher type  (int -{\textgreater} long)
+convert float to double
+convert bool to int
+convert int to bool if used as bool
+convert type to new type via typedef or remove typedef
+remove unnecessary includes
+remove unused variables or functions
+move declaration into or out of control statement
+
+API transformations:
+use stdin instead of files and vice versa
+use stdout instead of files and vice versa
+swap C/C++ APIs for reading
+swap C/C++ APIs for writing
+enable or remove sync of C/C++ streams if possible
+
+Template transformations(also used with tempates to impersonate authors)
+Rename identifier with either default values such as single-letter variable names or identifiers from dataset
+add includes from dataset
+add global declarations from dataset
+add type using typedef from datset
+
+Misc transformations:
+add or delete compound statement \{\} if possible
+add return statement to main method explicitly
+substitute literal return to variable return
+
+Strategy:
+Use monte-carlo tree search to iteratively select the best transformations
+Metrics:
+attack success rate
+Effectiveness:
+pretty high success rate
+Victim models:
+RF by caliskan
+LSTM for authorship attribution
+Downstream languages:
+C/C++
+Downstream tasks:
+authorship attribution
+Datasets:
+2017 google code jam
+Challenges/Future work:
+use of alternative techniques for authorship attribution
+What makes this paper unique:
+Use monte-carlo tree search to construct attacks
+},
+	file = {arXiv Fulltext PDF:files/221/Quiring et al. - 2019 - Misleading Authorship Attribution of Source Code using Adversarial Learning.pdf:application/pdf;arXiv.org Snapshot:files/222/1905.html:text/html},
+}
+
+@misc{rabin_evaluation_2021,
+	title = {Evaluation of {Generalizability} of {Neural} {Program} {Analyzers} under {Semantic}-{Preserving} {Transformations}},
+	url = {http://arxiv.org/abs/2004.07313},
+	doi = {10.48550/arXiv.2004.07313},
+	abstract = {The abundance of publicly available source code repositories, in conjunction with the advances in neural networks, has enabled data-driven approaches to program analysis. These approaches, called neural program analyzers, use neural networks to extract patterns in the programs for tasks ranging from development productivity to program reasoning. Despite the growing popularity of neural program analyzers, the extent to which their results are generalizable is unknown. In this paper, we perform a large-scale evaluation of the generalizability of two popular neural program analyzers using seven semantically-equivalent transformations of programs. Our results caution that in many cases the neural program analyzers fail to generalize well, sometimes to programs with negligible textual differences. The results provide the initial stepping stones for quantifying robustness in neural program analyzers.},
+	urldate = {2024-09-13},
+	publisher = {arXiv},
+	author = {Rabin, Md Rafiqul Islam and Alipour, Mohammad Amin},
+	month = mar,
+	year = {2021},
+	note = {arXiv:2004.07313 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering},
+	annote = {19 citations
+},
+	annote = {Comment: Related to arXiv:2008.01566},
+	annote = {Transformations:
+rename variable to varN
+switch for/while
+change switch to if
+change true to false and propagate
+swap independent statements
+insert try-catch
+unused string declaration
+Strategy:
+Apply single transformation in a single place or apply a single transformation in all places at the same time
+Metrics:
+proportion of changed programs that changed the model prediction
+Effectiveness:
+a lot, but also easy, since synonyms still count as changes
+Victim models:
+code2vec, code2sq
+Downstream languages:
+Java
+Downstream tasks:
+method name prediction
+Challenges/Future work:
+more research in this direction in general
+What makes this paper unique:
+basically nothing.
+},
+	file = {arXiv Fulltext PDF:files/225/Rabin and Alipour - 2021 - Evaluation of Generalizability of Neural Program Analyzers under Semantic-Preserving Transformations.pdf:application/pdf;arXiv.org Snapshot:files/226/2004.html:text/html},
+}
+
+@misc{li_cctest_2023,
+	title = {{CCTEST}: {Testing} and {Repairing} {Code} {Completion} {Systems}},
+	shorttitle = {{CCTEST}},
+	url = {http://arxiv.org/abs/2208.08289},
+	doi = {10.48550/arXiv.2208.08289},
+	abstract = {Code completion, a highly valuable topic in the software development domain, has been increasingly promoted for use by recent advances in large language models (LLMs). To date, visible LLM-based code completion frameworks such as GitHub Copilot and GPT are trained using deep learning over vast quantities of unstructured text and open source code. As the paramount component and the cornerstone in daily programming tasks, code completion has largely boosted professionals' efficiency in building real-world software systems. In contrast to this flourishing market, we find that code completion systems often output suspicious results, and to date, an automated testing and enhancement framework for code completion systems is not available. This research proposes CCTEST, a framework to test and repair code completion systems in blackbox settings. CCTEST features a set of novel mutation strategies, namely program structure-correlated (PSC) mutations, to generate mutated code completion inputs. Then, it detects inconsistent outputs, representing possibly erroneous cases, from all the completed code cases. Moreover, CCTEST repairs the code completion outputs by selecting the output that mostly reflects the "average" appearance of all output cases, as the final output of the code completion systems. We detected a total of 33,540 inputs (with a true positive rate of 86\%) that can trigger erroneous cases from eight popular LLM-based code completion systems. With repairing, we show that the accuracy of code completion systems is notably increased by 40\% and 67\% with respect to BLEU score and Levenshtein edit similarity.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Li, Zongjie and Wang, Chaozheng and Liu, Zhibo and Wang, Haoxuan and Chen, Dong and Wang, Shuai and Gao, Cuiyun},
+	month = may,
+	year = {2023},
+	note = {arXiv:2208.08289 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {43 citations
+
+},
+	annote = {Comment: 13 pages, 10 figures, 5 tables. Accepted by ICSE 2023},
+	annote = {Transformations:
+rename variable to template value
+rename variable with context in mind
+rename parameter to template value
+rename variable with context in mind
+replace instruction with equivalent instruction (a += b -{\textgreater} a = a + b)
+replace boolean expression with equivalent expression (b==b)
+insert template garbage code
+insert context garbage code
+insert print of variable.
+Strategy:
+Apply all feasible transformations??
+Metrics:
+BLEU and edit similarity
+Effectiveness:
+Not really compared to other methods
+Victim models:
+Github copilot, CodeParrot, GPT-Neo, GPT-J, CodeGen
+Downstream languages:
+Python
+Downstream tasks:
+Code completion
+Dataset:
+CodeSearchNet
+LeetCode solutions https://github.com/JiayangWu/LeetCode-Python
+Challenges/Future work:
+all outputs share aligned yet erroneous code. general and well-known hurdle. realism is still to be improved, other settings
+What makes this paper unique:
+CCTest, They argue that it is hard to define metrics for code completion, since code with very different syntax can still have correct semantics. They propose a tool for testing and enhancing code completion.
+},
+	file = {arXiv Fulltext PDF:files/231/Li et al. - 2023 - CCTEST Testing and Repairing Code Completion Systems.pdf:application/pdf;arXiv.org Snapshot:files/232/2208.html:text/html},
+}
+
+@misc{li_closer_2022,
+	title = {A {Closer} {Look} into {Transformer}-{Based} {Code} {Intelligence} {Through} {Code} {Transformation}: {Challenges} and {Opportunities}},
+	shorttitle = {A {Closer} {Look} into {Transformer}-{Based} {Code} {Intelligence} {Through} {Code} {Transformation}},
+	url = {http://arxiv.org/abs/2207.04285},
+	doi = {10.48550/arXiv.2207.04285},
+	abstract = {Transformer-based models have demonstrated state-of-the-art performance in many intelligent coding tasks such as code comment generation and code completion. Previous studies show that deep learning models are sensitive to the input variations, but few studies have systematically studied the robustness of Transformer under perturbed input code. In this work, we empirically study the effect of semantic-preserving code transformation on the performance of Transformer. Specifically, 24 and 27 code transformation strategies are implemented for two popular programming languages, Java and Python, respectively. For facilitating analysis, the strategies are grouped into five categories: block transformation, insertion/deletion transformation, grammatical statement transformation, grammatical token transformation, and identifier transformation. Experiments on three popular code intelligence tasks, including code completion, code summarization and code search, demonstrate insertion/deletion transformation and identifier transformation show the greatest impact on the performance of Transformer. Our results also suggest that Transformer based on abstract syntax trees (ASTs) shows more robust performance than the model based on only code sequence under most code transformations. Besides, the design of positional encoding can impact the robustness of Transformer under code transformation. Based on our findings, we distill some insights about the challenges and opportunities for Transformer-based code intelligence.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Li, Yaoxian and Qi, Shiyi and Gao, Cuiyun and Peng, Yun and Lo, David and Xu, Zenglin and Lyu, Michael R.},
+	month = jul,
+	year = {2022},
+	note = {arXiv:2207.04285 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {14 Citations
+},
+	annote = {very questionable transformations, not all of them are semantics preserving
+
+Transformations:
+Block transformations:
+replace for/while
+replace elseif/ifelse
+replace if with else
+split if statement if there is a logical operator
+move variable initialization statement to new function.
+Insertion/deletion transformations:
+add comments not related to the source code
+add code that is not related to the source code. (dead code i hope)
+add return statement that returns the default value?
+remove all comments
+randomly delete print
+remove unused variable
+Grammatical statement transformations:
+change return statement to return previously declared variable instead of literal
+move variable declaration in or out of for statement
+split variable initialization
+
+
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/234/Li et al. - 2022 - A Closer Look into Transformer-Based Code Intelligence Through Code Transformation Challenges and O.pdf:application/pdf;arXiv.org Snapshot:files/235/2207.html:text/html},
+}
+
+@misc{li_semantic-preserving_2022,
+	title = {Semantic-{Preserving} {Adversarial} {Code} {Comprehension}},
+	url = {http://arxiv.org/abs/2209.05130},
+	doi = {10.48550/arXiv.2209.05130},
+	abstract = {Based on the tremendous success of pre-trained language models (PrLMs) for source code comprehension tasks, current literature studies either ways to further improve the performance (generalization) of PrLMs, or their robustness against adversarial attacks. However, they have to compromise on the trade-off between the two aspects and none of them consider improving both sides in an effective and practical way. To fill this gap, we propose Semantic-Preserving Adversarial Code Embeddings (SPACE) to find the worst-case semantic-preserving attacks while forcing the model to predict the correct labels under these worst cases. Experiments and analysis demonstrate that SPACE can stay robust against state-of-the-art attacks while boosting the performance of PrLMs for code.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Li, Yiyang and Wu, Hongqiu and Zhao, Hai},
+	month = sep,
+	year = {2022},
+	note = {arXiv:2209.05130 [cs]},
+	keywords = {Computer Science - Computation and Language},
+	annote = {8 citations
+},
+	annote = {Comment: Accepted by COLING 2022},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/238/Li et al. - 2022 - Semantic-Preserving Adversarial Code Comprehension.pdf:application/pdf;arXiv.org Snapshot:files/239/2209.html:text/html},
+}
+
+@misc{li_towards_2021,
+	title = {Towards {Making} {Deep} {Learning}-based {Vulnerability} {Detectors} {Robust}},
+	url = {http://arxiv.org/abs/2108.00669},
+	doi = {10.48550/arXiv.2108.00669},
+	abstract = {Automatically detecting software vulnerabilities in source code is an important problem that has attracted much attention. In particular, deep learning-based vulnerability detectors, or DL-based detectors, are attractive because they do not need human experts to define features or patterns of vulnerabilities. However, such detectors' robustness is unclear. In this paper, we initiate the study in this aspect by demonstrating that DL-based detectors are not robust against simple code transformations, dubbed attacks in this paper, as these transformations may be leveraged for malicious purposes. As a first step towards making DL-based detectors robust against such attacks, we propose an innovative framework, dubbed ZigZag, which is centered at (i) decoupling feature learning and classifier learning and (ii) using a ZigZag-style strategy to iteratively refine them until they converge to robust features and robust classifiers. Experimental results show that the ZigZag framework can substantially improve the robustness of DL-based detectors.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Li, Zhen and Tang, Jing and Zou, Deqing and Chen, Qian and Xu, Shouhuai and Zhang, Chao and Li, Yichen and Jin, Hai},
+	month = aug,
+	year = {2021},
+	note = {arXiv:2108.00669 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Cryptography and Security},
+	annote = {10 citations
+},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/241/Li et al. - 2021 - Towards Making Deep Learning-based Vulnerability Detectors Robust.pdf:application/pdf;arXiv.org Snapshot:files/242/2108.html:text/html},
+}
+
+@misc{yang_assessing_2023,
+	title = {Assessing and {Improving} {Syntactic} {Adversarial} {Robustness} of {Pre}-trained {Models} for {Code} {Translation}},
+	url = {http://arxiv.org/abs/2310.18587},
+	doi = {10.48550/arXiv.2310.18587},
+	abstract = {Context: Pre-trained models (PTMs) have demonstrated significant potential in automatic code translation. However, the vulnerability of these models in translation tasks, particularly in terms of syntax, has not been extensively investigated. Objective: To fill this gap, our study aims to propose a novel approach CoTR to assess and improve the syntactic adversarial robustness of PTMs in code translation. Method: CoTR consists of two components: CoTR-A and CoTR-D. CoTR-A generates adversarial examples by transforming programs, while CoTR-D proposes a semantic distance-based sampling data augmentation method and adversarial training method to improve the model's robustness and generalization capabilities. The Pass@1 metric is used by CoTR to assess the performance of PTMs, which is more suitable for code translation tasks and offers a more precise evaluation in real world scenarios. Results: The effectiveness of CoTR is evaluated through experiments on real world Java to Python datasets. The results demonstrate that CoTR-A can significantly reduce the performance of existing PTMs, while CoTR-D effectively improves the robustness of PTMs. Conclusion: Our study identifies the limitations of current PTMs, including large language models, in code translation tasks. It highlights the potential of CoTR as an effective solution to enhance the robustness of PTMs for code translation tasks.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Yang, Guang and Zhou, Yu and Zhang, Xiangyu and Chen, Xiang and Han, Tingting and Chen, Taolue},
+	month = oct,
+	year = {2023},
+	note = {arXiv:2310.18587 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {6 citations
+	
+},
+	annote = {Comment: under review},
+	annote = {Transformations:
+switch for/while
+transform expressions (a+=b -{\textgreater} a=a+b)
+swap if blocks
+reorder left and right parts of binary conditions.
+Strategy:
+enumerate all possible combinations of transformations. If a transformation can be done in more than one place, select one at random. not exhaustive. only select samples that can fool the victim model.
+Metrics:
+BLEU, CodeBLEU, EM, Code-exec, Pass@1, Robust Pass@1, Robust drop@1
+Effectiveness:
+Outperforms RADAR and ALERT by a lot
+Victim models:
+CodeBERT, ContraBERT, GraphCodeBERT, CodeGPT, CodeGPT-adapter, CodeGEn, NatGen, CodeT5, PLBART, UniXcoder
+Downstream languages:
+Java/Python
+Downstream tasks:
+Code Translation
+Challenges/Future work:
+develop a more robust pre-trained model, explore other techniques, such as program repair or LLMs
+What makes this paper unique:
+CoTR, already did a literature review until march 2023 of program transformations, considers semantics, informativeness and readability as naturalness. very nice framework, might consider using as well. Seems effective as well. also proposes defense method.
+},
+	file = {arXiv Fulltext PDF:files/255/Yang et al. - 2023 - Assessing and Improving Syntactic Adversarial Robustness of Pre-trained Models for Code Translation.pdf:application/pdf;arXiv.org Snapshot:files/256/2310.html:text/html},
+}
+
+@misc{zhang_transfer_2023,
+	title = {Transfer {Attacks} and {Defenses} for {Large} {Language} {Models} on {Coding} {Tasks}},
+	url = {http://arxiv.org/abs/2311.13445},
+	doi = {10.48550/arXiv.2311.13445},
+	abstract = {Modern large language models (LLMs), such as ChatGPT, have demonstrated impressive capabilities for coding tasks including writing and reasoning about code. They improve upon previous neural network models of code, such as code2seq or seq2seq, that already demonstrated competitive results when performing tasks such as code summarization and identifying code vulnerabilities. However, these previous code models were shown vulnerable to adversarial examples, i.e. small syntactic perturbations that do not change the program's semantics, such as the inclusion of "dead code" through false conditions or the addition of inconsequential print statements, designed to "fool" the models. LLMs can also be vulnerable to the same adversarial perturbations but a detailed study on this concern has been lacking so far. In this paper we aim to investigate the effect of adversarial perturbations on coding tasks with LLMs. In particular, we study the transferability of adversarial examples, generated through white-box attacks on smaller code models, to LLMs. Furthermore, to make the LLMs more robust against such adversaries without incurring the cost of retraining, we propose prompt-based defenses that involve modifying the prompt to include additional information such as examples of adversarially perturbed code and explicit instructions for reversing adversarial perturbations. Our experiments show that adversarial examples obtained with a smaller code model are indeed transferable, weakening the LLMs' performance. The proposed defenses show promise in improving the model's resilience, paving the way to more robust defensive solutions for LLMs in code-related applications.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Zhang, Chi and Wang, Zifan and Mangal, Ravi and Fredrikson, Matt and Jia, Limin and Pasareanu, Corina},
+	month = nov,
+	year = {2023},
+	note = {arXiv:2311.13445 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Cryptography and Security},
+	annote = {3 citations
+},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/260/Zhang et al. - 2023 - Transfer Attacks and Defenses for Large Language Models on Coding Tasks.pdf:application/pdf;arXiv.org Snapshot:files/261/2311.html:text/html},
+}
+
+@misc{nguyen_adversarial_2023,
+	title = {Adversarial {Attacks} on {Code} {Models} with {Discriminative} {Graph} {Patterns}},
+	url = {http://arxiv.org/abs/2308.11161},
+	doi = {10.48550/arXiv.2308.11161},
+	abstract = {Pre-trained language models of code are now widely used in various software engineering tasks such as code generation, code completion, vulnerability detection, etc. This, in turn, poses security and reliability risks to these models. One of the important threats is {\textbackslash}textit\{adversarial attacks\}, which can lead to erroneous predictions and largely affect model performance on downstream tasks. Current adversarial attacks on code models usually adopt fixed sets of program transformations, such as variable renaming and dead code insertion, leading to limited attack effectiveness. To address the aforementioned challenges, we propose a novel adversarial attack framework, GraphCodeAttack, to better evaluate the robustness of code models. Given a target code model, GraphCodeAttack automatically mines important code patterns, which can influence the model's decisions, to perturb the structure of input code to the model. To do so, GraphCodeAttack uses a set of input source codes to probe the model's outputs and identifies the {\textbackslash}textit\{discriminative\} ASTs patterns that can influence the model decisions. GraphCodeAttack then selects appropriate AST patterns, concretizes the selected patterns as attacks, and inserts them as dead code into the model's input program. To effectively synthesize attacks from AST patterns, GraphCodeAttack uses a separate pre-trained code model to fill in the ASTs with concrete code snippets. We evaluate the robustness of two popular code models (e.g., CodeBERT and GraphCodeBERT) against our proposed approach on three tasks: Authorship Attribution, Vulnerability Prediction, and Clone Detection. The experimental results suggest that our proposed approach significantly outperforms state-of-the-art approaches in attacking code models such as CARROT and ALERT.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Nguyen, Thanh-Dat and Zhou, Yang and Le, Xuan Bach D. and Patanamon and Thongtanunam and Lo, David},
+	month = aug,
+	year = {2023},
+	note = {arXiv:2308.11161 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {6 citations
+},
+	annote = {Transformations:
+Add dead code (pattern mined from other patterns. If conditional, put with \&\& False, otherwise put in if(false))
+Strategy:
+Mine highly influential patterns from other programs and then synthesize these patterns with a code model, then insert these patterns into another snippet
+Metrics:
+Attack success rate
+Effectiveness:
+more effective than CARROT and ALERT
+Victim models:
+CodeBERT, GraphCodeBERT
+Downstream languages:
+Python, Java, C
+Downstream tasks:
+Vulnerability prediction, clone detection, authorship attribution
+Challenges/Future work:
+investigate impact of different perturbations, explore multi-class and multi-label settings
+What makes this paper unique:
+GraphCodeAttack, attacks using mined patterns, can make adversarial samples with less token changes.
+},
+	file = {arXiv Fulltext PDF:files/274/Nguyen et al. - 2023 - Adversarial Attacks on Code Models with Discriminative Graph Patterns.pdf:application/pdf;arXiv.org Snapshot:files/275/2308.html:text/html},
+}
+
+@misc{le-cong_evaluating_2024,
+	title = {Evaluating {Program} {Repair} with {Semantic}-{Preserving} {Transformations}: {A} {Naturalness} {Assessment}},
+	shorttitle = {Evaluating {Program} {Repair} with {Semantic}-{Preserving} {Transformations}},
+	url = {http://arxiv.org/abs/2402.11892},
+	doi = {10.48550/arXiv.2402.11892},
+	abstract = {In this paper, we investigate the naturalness of semantic-preserving transformations and their impacts on the evaluation of NPR. To achieve this, we conduct a two-stage human study, including (1) interviews with senior software developers to establish the first concrete criteria for assessing the naturalness of code transformations and (2) a survey involving 10 developers to assess the naturalness of 1178 transformations, i.e., pairs of original and transformed programs, applied to 225 real-world bugs. Our findings reveal that nearly 60\% and 20\% of these transformations are considered natural and unnatural with substantially high agreement among human annotators. Furthermore, the unnatural code transformations introduce a 25.2\% false alarm rate on robustness of five well-known NPR systems. Additionally, the performance of the NPR systems drops notably when evaluated using natural transformations, i.e., a drop of up to 22.9\% and 23.6\% in terms of the numbers of correct and plausible patches generated by these systems. These results highlight the importance of robustness testing by considering naturalness of code transformations, which unveils true effectiveness of NPR systems. Finally, we conduct an exploration study on automating the assessment of naturalness of code transformations by deriving a new naturalness metric based on Cross-Entropy. Based on our naturalness metric, we can effectively assess naturalness for code transformations automatically with an AUC of 0.7.},
+	urldate = {2024-09-17},
+	publisher = {arXiv},
+	author = {Le-Cong, Thanh and Nguyen, Dat and Le, Bach and Murray, Toby},
+	month = feb,
+	year = {2024},
+	note = {arXiv:2402.11892 [cs]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Software Engineering},
+	annote = {2 citations
+},
+	annote = {This paper cites the RobustNPR paper and argues that it should only be measured with natural transformaions.
+They do a rigorous study to define naturalness of a transformation. This lead to the following definiton:
+A semantic-preserving transformation in deemed unnatural if at least one of the following conditions is met:
+1) It reduces the code readability of the original code;
+2) It breaks the coding convention of the original code.
+
+They also do a user study to find natural transformations based on their definition of naturalness
+Then they evaluate robustness with the test suite and manual assessment.
+
+They show that npr models are also not robust to natural transformations, and they find a method for automatically detecting naturalness in code.
+},
+	annote = {Transformations:
+transform relational expression (a {\textless} b -{\textgreater} b {\textgreater} a)
+expand ++
+expand +, -
+merge variable declarations (a, b)
+divide formula into multiple expressions
+switch == operands
+switch string equals operands 
+replace variable name by its first character
+replace variable name by substitution from CodeBERT
+for/while transformation
+else if to if
+switch to if
+swap independent statements
+reverse if/else
+if to conditional
+change conditional into if
+divide composed if
+Strategy:
+max of 12 transfromations, most about 6. unclear how they decide.
+Metrics:
+Prediction change.
+Cross-entropy (how surprised a llm is)
+Effectiveness:
+relatively effective, not compared against sota
+Victim models:
+SequenceR, Recoder, SelfAPR, RewardRepair, AlphaRepair
+Downstream languages:
+Java
+Downstream tasks:
+Bug fixing
+Challenges/Future work:
+other tasks, other models, more transformations, new methods
+What makes this paper unique:
+Apply humans to measure naturalness, as well as an automated measure. Applied to program repair.
+},
+	file = {arXiv Fulltext PDF:files/285/Le-Cong et al. - 2024 - Evaluating Program Repair with Semantic-Preserving Transformations A Naturalness Assessment.pdf:application/pdf;arXiv.org Snapshot:files/286/2402.html:text/html},
+}
+
+@misc{pei_exploiting_2024,
+	title = {Exploiting {Code} {Symmetries} for {Learning} {Program} {Semantics}},
+	url = {http://arxiv.org/abs/2308.03312},
+	doi = {10.48550/arXiv.2308.03312},
+	abstract = {This paper tackles the challenge of teaching code semantics to Large Language Models (LLMs) for program analysis by incorporating code symmetries into the model architecture. We introduce a group-theoretic framework that defines code symmetries as semantics-preserving transformations, where forming a code symmetry group enables precise and efficient reasoning of code semantics. Our solution, SymC, develops a novel variant of self-attention that is provably equivariant to code symmetries from the permutation group defined over the program dependence graph. SymC obtains superior performance on five program analysis tasks, outperforming state-of-the-art code models without any pre-training. Our results suggest that code LLMs that encode the code structural prior via the code symmetry group generalize better and faster.},
+	urldate = {2024-09-17},
+	publisher = {arXiv},
+	author = {Pei, Kexin and Li, Weichen and Jin, Qirui and Liu, Shuyang and Geng, Scott and Cavallaro, Lorenzo and Yang, Junfeng and Jana, Suman},
+	month = sep,
+	year = {2024},
+	note = {arXiv:2308.03312 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Cryptography and Security},
+	annote = {1 Citation
+},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/290/Pei et al. - 2024 - Exploiting Code Symmetries for Learning Program Semantics.pdf:application/pdf;arXiv.org Snapshot:files/291/2308.html:text/html},
+}
+
+@misc{springer_strata_2021,
+	title = {{STRATA}: {Simple}, {Gradient}-{Free} {Attacks} for {Models} of {Code}},
+	shorttitle = {{STRATA}},
+	url = {http://arxiv.org/abs/2009.13562},
+	doi = {10.48550/arXiv.2009.13562},
+	abstract = {Neural networks are well-known to be vulnerable to imperceptible perturbations in the input, called adversarial examples, that result in misclassification. Generating adversarial examples for source code poses an additional challenge compared to the domains of images and natural language, because source code perturbations must retain the functional meaning of the code. We identify a striking relationship between token frequency statistics and learned token embeddings: the L2 norm of learned token embeddings increases with the frequency of the token except for the highest-frequnecy tokens. We leverage this relationship to construct a simple and efficient gradient-free method for generating state-of-the-art adversarial examples on models of code. Our method empirically outperforms competing gradient-based methods with less information and less computational effort.},
+	urldate = {2024-09-18},
+	publisher = {arXiv},
+	author = {Springer, Jacob M. and Reinstadler, Bryn Marie and O'Reilly, Una-May},
+	month = aug,
+	year = {2021},
+	note = {arXiv:2009.13562 [cs, stat]},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Cryptography and Security},
+	annote = {5 citations
+
+},
+	annote = {Comment: KDD'21 AdvML Workshop},
+	annote = {Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/338/Springer et al. - 2021 - STRATA Simple, Gradient-Free Attacks for Models of Code.pdf:application/pdf;arXiv.org Snapshot:files/339/2009.html:text/html},
+}
+
+@misc{li_black-box_2023,
+	title = {Black-box {Adversarial} {Example} {Attack} towards {FCG} {Based} {Android} {Malware} {Detection} under {Incomplete} {Feature} {Information}},
+	url = {http://arxiv.org/abs/2303.08509},
+	doi = {10.48550/arXiv.2303.08509},
+	abstract = {The function call graph (FCG) based Android malware detection methods have recently attracted increasing attention due to their promising performance. However, these methods are susceptible to adversarial examples (AEs). In this paper, we design a novel black-box AE attack towards the FCG based malware detection system, called BagAmmo. To mislead its target system, BagAmmo purposefully perturbs the FCG feature of malware through inserting "never-executed" function calls into malware code. The main challenges are two-fold. First, the malware functionality should not be changed by adversarial perturbation. Second, the information of the target system (e.g., the graph feature granularity and the output probabilities) is absent. To preserve malware functionality, BagAmmo employs the try-catch trap to insert function calls to perturb the FCG of malware. Without the knowledge about feature granularity and output probabilities, BagAmmo adopts the architecture of generative adversarial network (GAN), and leverages a multi-population co-evolution algorithm (i.e., Apoem) to generate the desired perturbation. Every population in Apoem represents a possible feature granularity, and the real feature granularity can be achieved when Apoem converges. Through extensive experiments on over 44k Android apps and 32 target models, we evaluate the effectiveness, efficiency and resilience of BagAmmo. BagAmmo achieves an average attack success rate of over 99.9\% on MaMaDroid, APIGraph and GCN, and still performs well in the scenario of concept drift and data imbalance. Moreover, BagAmmo outperforms the state-of-the-art attack SRL in attack success rate.},
+	urldate = {2024-09-18},
+	publisher = {arXiv},
+	author = {Li, Heng and Cheng, Zhang and Wu, Bang and Yuan, Liheng and Gao, Cuiying and Yuan, Wei and Luo, Xiapu},
+	month = mar,
+	year = {2023},
+	note = {arXiv:2303.08509 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {16 citations
+},
+	annote = {Questionable paper.
+Transformations:
+Strategy:
+Metrics:
+Effectiveness:
+Victim models:
+Downstream languages:
+Downstream tasks:
+Challenges/Future work:
+What makes this paper unique:
+},
+	file = {arXiv Fulltext PDF:files/347/Li et al. - 2023 - Black-box Adversarial Example Attack towards FCG Based Android Malware Detection under Incomplete Fe.pdf:application/pdf;arXiv.org Snapshot:files/348/2303.html:text/html},
+}
+
+
+
+
+
+
+

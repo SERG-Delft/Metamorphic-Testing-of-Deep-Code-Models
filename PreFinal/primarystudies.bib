@@ -1,0 +1,1601 @@
+
+@inproceedings{applis_assessing_2021,
+	title = {Assessing {Robustness} of {ML}-{Based} {Program} {Analysis} {Tools} using {Metamorphic} {Program} {Transformations}},
+	url = {https://ieeexplore.ieee.org/abstract/document/9678706},
+	doi = {10.1109/ASE51524.2021.9678706},
+	abstract = {Metamorphic testing is a well-established testing technique that has been successfully applied in various domains, including testing deep learning models to assess their robustness against data noise or malicious input. Currently, metamorphic testing approaches for machine learning (ML) models focused on image processing and object recognition tasks. Hence, these approaches cannot be applied to ML targeting program analysis tasks. In this paper, we extend metamorphic testing approaches for ML models targeting software programs. We present LAMPION, a novel testing framework that applies (semantics preserving) metamorphic transformations on the test datasets. LAMPION produces new code snippets equivalent to the original test set but different in their identifiers or syntactic structure. We evaluate LAMPION against CodeBERT, a state-of-the-art ML model for Code-To-Text tasks that creates Javadoc summaries for given Java methods. Our results show that simple transformations significantly impact the target model behavior, providing additional information on the models reasoning apart from the classic performance metric.},
+	urldate = {2024-09-07},
+	booktitle = {2021 36th {IEEE}/{ACM} {International} {Conference} on {Automated} {Software} {Engineering} ({ASE})},
+	author = {Applis, Leonhard and Panichella, Annibale and van Deursen, Arie},
+	month = nov,
+	year = {2021},
+	note = {ISSN: 2643-1572},
+	keywords = {documentation-generation, Java, machine learning in software engineering, Measurement, metamorphic testing, Robustness, Semantics, Software, Statistical analysis, Syntactics},
+	pages = {1377--1381},
+	annote = {Transformations:
+Wrap random expression in if(true)
+Add random unused variable (name from dictionary or program under test)
+Rename class, method or variable (unclear with what)
+Wrap expression in identity-lambda function
+Extract an expression into a function and invoke that function (name from dictionary or program under test)
+Add, remove or move comments (unclear how they are generated)
+Introduce an unused parameter  (name from dictionary or program under test)
+Add/remove whitespace
+Add neutral element to primitively typed expression ??
+
+Strategy:
+Repetitively apply a transformation and then feed it into the model
+
+Metrics:
+BLEU4, Friedman test, Nemenyi test, Jaccard distance to reference
+
+Effectiveness:
+Does not show a huge difference in BLEU score or Jaccard distance
+
+Victim models:
+CodeBERT
+
+Downstream languages:
+Java
+
+Downstream tasks:
+code summarization (JavaDoc generation)
+
+Dataset:
+CodeSearchNet
+
+Challenges/Future work:
+Implement for other languages and do more studies
+
+What makes this paper unique:
+LAMPION, Propose to add robustness as a mandatory attribute for SOTA models.
+},
+	file = {IEEE Xplore Full Text PDF:files/8/Applis et al. - 2021 - Assessing Robustness of ML-Based Program Analysis Tools using Metamorphic Program Transformations.pdf:application/pdf},
+}
+
+@inproceedings{applis_searching_2023,
+	address = {New York, NY, USA},
+	series = {{GECCO} '23},
+	title = {Searching for {Quality}: {Genetic} {Algorithms} and {Metamorphic} {Testing} for {Software} {Engineering} {ML}},
+	isbn = {9798400701191},
+	shorttitle = {Searching for {Quality}},
+	url = {https://dl.acm.org/doi/10.1145/3583131.3590379},
+	doi = {10.1145/3583131.3590379},
+	abstract = {More machine learning (ML) models are introduced to the field of Software Engineering (SE) and reached a stage of maturity to be considered for real-world use; But the real world is complex, and testing these models lacks often in explainability, feasibility and computational capacities. Existing research introduced meta-morphic testing to gain additional insights and certainty about the model, by applying semantic-preserving changes to input-data while observing model-output. As this is currently done at random places, it can lead to potentially unrealistic datapoints and high computational costs. With this work, we introduce genetic search as an aid for metamorphic testing in SE ML. Exploiting the delta in output as a fitness function, the evolutionary intelligence optimizes the transformations to produce higher deltas with less changes. We perform a case study minimizing F1 and MRR for Code2Vec on a representative sample from java-small with both genetic and random search. Our results show that within the same amount of time, genetic search was able to achieve a decrease of 10\% in F1 while random search produced 3\% drop.},
+	urldate = {2024-09-10},
+	booktitle = {Proceedings of the {Genetic} and {Evolutionary} {Computation} {Conference}},
+	publisher = {Association for Computing Machinery},
+	author = {Applis, Leonhard and Panichella, Annibale and Marang, Ruben},
+	month = jul,
+	year = {2023},
+	pages = {1490--1498},
+	annote = {Transformations:
+Same as Lampion
+Strategy:
+Use a GA to find an effective combination of transformations
+Metrics:
+F1, MRR
+Effectiveness:
+Better than random search
+Victim models:
+code2vec
+Downstream languages:
+Java
+Downstream tasks:
+none mentioned
+Dataset:
+java-small
+Challenges/Future work:
+MRR-F1 conflict? failed maximizatioin
+What makes this paper unique:
+Genetic algorithm for metamorphic testing.
+},
+	file = {Full Text PDF:files/47/Applis et al. - 2023 - Searching for Quality Genetic Algorithms and Metamorphic Testing for Software Engineering ML.pdf:application/pdf},
+}
+
+@article{zhou_evolutionary_2024,
+	title = {Evolutionary {Multi}-objective {Optimization} for {Contextual} {Adversarial} {Example} {Generation}},
+	volume = {1},
+	url = {https://dl.acm.org/doi/10.1145/3660808},
+	doi = {10.1145/3660808},
+	abstract = {The emergence of the 'code naturalness' concept, which suggests that software code shares statistical properties with natural language, paves the way for deep neural networks (DNNs) in software engineering (SE). However, DNNs can be vulnerable to certain human imperceptible variations in the input, known as adversarial examples (AEs), which could lead to adverse model performance. Numerous attack strategies have been proposed to generate AEs in the context of computer vision and natural language processing, but the same is less true for source code of programming languages in SE. One of the challenges is derived from various constraints including syntactic, semantics and minimal modification ratio. These constraints, however, are subjective and can be conflicting with the purpose of fooling DNNs. This paper develops a multi-objective adversarial attack method (dubbed MOAA), a tailored NSGA-II, a powerful evolutionary multi-objective (EMO) algorithm, integrated with CodeT5 to generate high-quality AEs based on contextual information of the original code snippet. Experiments on 5 source code tasks with 10 datasets of 6 different programming languages show that our approach can generate a diverse set of high-quality AEs with promising transferability. In addition, using our AEs, for the first time, we provide insights into the internal behavior of pre-trained models.},
+	number = {FSE},
+	urldate = {2024-09-10},
+	journal = {Proc. ACM Softw. Eng.},
+	author = {Zhou, Shasha and Huang, Mingyu and Sun, Yanan and Li, Ke},
+	month = jul,
+	year = {2024},
+	pages = {101:2285--101:2308},
+	annote = {Transformations:
+Change identifier name to semantically close word
+Strategy:
+Select ids proportional to importance, the do NSGA-II multi-objective evolutionary algorithm. The objectives are, adversarial loss, semantic similarity and modification rate.
+Metrics:
+Adversarial success rate (AVR), Average adversarial loss (ALL), Average semantic similarity (ASS), Average modification rate (AMR), Average Query Count(AQC)
+Effectiveness:
+dominates MHM, Greedy attack and ALERT
+Victim models:
+codeBERT
+graphCodeBERT
+codeT5
+Downstream languages:
+Java, C\#, Go, Javascript, python, ruby
+Downstream tasks:
+defect detection
+clone detection
+authorship attribution
+code translation
+code summarization
+Dataset:
+in unavailable appendix
+Challenges/Future work:
+unsure about hyperparameters, should be applied to more datasets and models.
+What makes this paper unique:
+Use multi-objective evolutionary algorithm to optimize for attack effectiveness and similarity to original at the same time.
+
+},
+	file = {Full Text PDF:files/55/Zhou et al. - 2024 - Evolutionary Multi-objective Optimization for Contextual Adversarial Example Generation.pdf:application/pdf},
+}
+
+@article{gao_discrete_2023,
+	title = {Discrete {Adversarial} {Attack} to {Models} of {Code}},
+	volume = {7},
+	url = {https://dl.acm.org/doi/10.1145/3591227},
+	doi = {10.1145/3591227},
+	abstract = {The pervasive brittleness of deep neural networks has attracted significant attention in recent years. A particularly interesting finding is the existence of adversarial examples, imperceptibly perturbed natural inputs that induce erroneous predictions in state-of-the-art neural models. In this paper, we study a different type of adversarial examples specific to code models, called discrete adversarial examples, which are created through program transformations that preserve the semantics of original inputs.In particular, we propose a novel, general method that is highly effective in attacking a broad range of code models. From the defense perspective, our primary contribution is a theoretical foundation for the application of adversarial training — the most successful algorithm for training robust classifiers — to defending code models against discrete adversarial attack. Motivated by the theoretical results, we present a simple realization of adversarial training that substantially improves the robustness of code models against adversarial attacks in practice. We extensively evaluate both our attack and defense methods. Results show that our discrete attack is significantly more effective than state-of-the-art whether or not defense mechanisms are in place to aid models in resisting attacks. In addition, our realization of adversarial training improves the robustness of all evaluated models by the widest margin against state-of-the-art adversarial attacks as well as our own.},
+	number = {PLDI},
+	urldate = {2024-09-10},
+	journal = {Proc. ACM Program. Lang.},
+	author = {Gao, Fengjuan and Wang, Yu and Wang, Ke},
+	month = jun,
+	year = {2023},
+	pages = {113:172--113:195},
+	annote = {Transformations:
+Rename variables with common variable names from other programs
+swap independent statements
+swap operands (a+b ={\textgreater} b+a)
+toggle operators (a-b+c ={\textgreater} a-(b-c))
+boolean negation (also swap around in the rest of the program)
+replace swittch/elseif
+replace for/while
+unfold expression
+insert dead code (significant features for target labels)
+
+Strategy:
+Apply transformations in a random order and as many as possible to create as many equivalent programs as possible. Do insertion first and then substitution.
+Try to destroy critical features so that the model gives low probabilities for all classes.
+Obtain significant features for target labels.
+Add significant features for target labels as dead code.
+
+Metrics:
+Robustness score: percentage of input programs for which the correctly predicted label was not changed to the adversary’s desired label.
+Effectiveness:
+Effectiveness:
+Much more effective than DAMP
+Victim models:
+code2vec, GGNN, codeBERT
+Downstream languages:
+code2vec, GGNN, codeBERT
+Downstream tasks:
+varmisuse/code documentation (unclear!)
+Dataset:
+java-large
+C\#dataset by Allaminis et al
+CodeSearchNet
+Challenges/Future work:
+none mentioned
+What makes this paper unique:
+DaK, Targeted attack, black box, also proposes defense method, both attack and defense highly effective.
+
+
+
+},
+	file = {Full Text PDF:files/66/Gao et al. - 2023 - Discrete Adversarial Attack to Models of Code.pdf:application/pdf},
+}
+
+@article{yefet_adversarial_2020,
+	title = {Adversarial examples for models of code},
+	volume = {4},
+	url = {https://dl.acm.org/doi/10.1145/3428230},
+	doi = {10.1145/3428230},
+	abstract = {Neural models of code have shown impressive results when performing tasks such as predicting method names and identifying certain kinds of bugs. We show that these models are vulnerable to adversarial examples, and introduce a novel approach for attacking trained models of code using adversarial examples. The main idea of our approach is to force a given trained model to make an incorrect prediction, as specified by the adversary, by introducing small perturbations that do not change the program’s semantics, thereby creating an adversarial example. To find such perturbations, we present a new technique for Discrete Adversarial Manipulation of Programs (DAMP). DAMP works by deriving the desired prediction with respect to the model’s inputs, while holding the model weights constant, and following the gradients to slightly modify the input code. We show that our DAMP attack is effective across three neural architectures: code2vec, GGNN, and GNN-FiLM, in both Java and C\#. Our evaluations demonstrate that DAMP has up to 89\% success rate in changing a prediction to the adversary’s choice (a targeted attack) and a success rate of up to 94\% in changing a given prediction to any incorrect prediction (a non-targeted attack). To defend a model against such attacks, we empirically examine a variety of possible defenses and discuss their trade-offs. We show that some of these defenses can dramatically drop the success rate of the attacker, with a minor penalty of 2\% relative degradation in accuracy when they are not performing under attack. Our code, data, and trained models are available at \&lt;a\&gt;https://github.com/tech-srl/adversarial-examples\&lt;/a\&gt; .},
+	number = {OOPSLA},
+	urldate = {2024-09-10},
+	journal = {Proc. ACM Program. Lang.},
+	author = {Yefet, Noam and Alon, Uri and Yahav, Eran},
+	month = nov,
+	year = {2020},
+	pages = {162:1--162:30},
+	annote = {Transformations:
+Rename variable based on gradients to maximize disruption
+Add unused variable at the end of the method and also use gradients to maximize the disruption
+Strategy:
+Follow the gradient, compute losses and change the corresponding variable
+Metrics:
+robustness - the proportion of examples where the label was not switched to the desired label
+Effectiveness:
+Very effective if not targeted. Targeted also some more effective than baselines.
+Victim models:
+code2vec, GGNN, GNN-FiLM
+Downstream languages:
+Java, C\#
+Downstream tasks:
+Method name prediction
+Functionality classification
+Dataset:
+java-large
+C\# dataset by allamanis et al https://openreview.net/forum?id=BJOFETxR-
+Challenges/Future work:
+Challenges/solutions:
+Use more transformations for targeted attacks
+What makes this paper unique:
+Early paper for white-box adversarial attack on code models.
+},
+	file = {Full Text PDF:files/74/Yefet et al. - 2020 - Adversarial examples for models of code.pdf:application/pdf},
+}
+
+@article{zhou_adversarial_2022,
+	title = {Adversarial {Robustness} of {Deep} {Code} {Comment} {Generation}},
+	volume = {31},
+	issn = {1049-331X},
+	url = {https://doi.org/10.1145/3501256},
+	doi = {10.1145/3501256},
+	abstract = {Deep neural networks (DNNs) have shown remarkable performance in a variety of domains such as computer vision, speech recognition, and natural language processing. Recently they also have been applied to various software engineering tasks, typically involving processing source code. DNNs are well-known to be vulnerable to adversarial examples, i.e., fabricated inputs that could lead to various misbehaviors of the DNN model while being perceived as benign by humans. In this paper, we focus on the code comment generation task in software engineering and study the robustness issue of the DNNs when they are applied to this task. We propose ACCENT(Adversarial Code Comment gENeraTor), an identifier substitution approach to craft adversarial code snippets, which are syntactically correct and semantically close to the original code snippet, but may mislead the DNNs to produce completely irrelevant code comments. In order to improve the robustness, ACCENT also incorporates a novel training method, which can be applied to existing code comment generation models. We conduct comprehensive experiments to evaluate our approach by attacking the mainstream encoder-decoder architectures on two large-scale publicly available datasets. The results show that ACCENT efficiently produces stable attacks with functionality-preserving adversarial examples, and the generated examples have better transferability compared with the baselines. We also confirm, via experiments, the effectiveness in improving model robustness with our training method.},
+	number = {4},
+	urldate = {2024-09-10},
+	journal = {ACM Trans. Softw. Eng. Methodol.},
+	author = {Zhou, Yu and Zhang, Xiaoqing and Shen, Juanjuan and Han, Tingting and Chen, Taolue and Gall, Harald},
+	month = jul,
+	year = {2022},
+	pages = {60:1--60:30},
+	annote = {Transformations:
+Rename single-letter identifier to random other letter.
+Rename multi-letter identifiers to one of k similar words
+Strategy:
+Compute most important identifiers by comparing identifier embedding and program embedding. Then substitute identifiers with most score-changing synonyms in order of importance
+Metrics:
+BLEU, METEOR, ROUGE-L
+Effectiveness:
+Performs a little better than MHM
+Victim models:
+LSTM-based seq2seq, Transformer-based seq2seq, GNN-based seq2seq, CSCG Dual model, Rencos
+Downstream languages:
+Java, python
+Downstream tasks:
+comment generation
+Dataset:
+Java dataset by Hu et al.
+Python dataset by Wan et al. https://dl.acm.org/doi/abs/10.1145/3238147.3238206
+Challenges/Future work:
+Structure rewriting, more tasks
+What makes this paper unique:
+ACCENT, more effective than previous papers, better transferability and good data augmentation, also black-box.
+
+},
+	file = {Accepted Version:files/76/Zhou et al. - 2022 - Adversarial Robustness of Deep Code Comment Generation.pdf:application/pdf},
+}
+
+@inproceedings{yang_natural_2022,
+	address = {New York, NY, USA},
+	series = {{ICSE} '22},
+	title = {Natural attack for pre-trained models of code},
+	isbn = {978-1-4503-9221-1},
+	url = {https://doi.org/10.1145/3510003.3510146},
+	doi = {10.1145/3510003.3510146},
+	abstract = {Pre-trained models of code have achieved success in many important software engineering tasks. However, these powerful models are vulnerable to adversarial attacks that slightly perturb model inputs to make a victim model produce wrong outputs. Current works mainly attack models of code with examples that preserve operational program semantics but ignore a fundamental requirement for adversarial example generation: perturbations should be natural to human judges, which we refer to as naturalness requirement.In this paper, we propose ALERT (Naturalness Aware Attack), a black-box attack that adversarially transforms inputs to make victim models produce wrong outputs. Different from prior works, this paper considers the natural semantic of generated examples at the same time as preserving the operational semantic of original inputs. Our user study demonstrates that human developers consistently consider that adversarial examples generated by ALERT are more natural than those generated by the state-of-the-art work by Zhang et al. that ignores the naturalness requirement. On attacking CodeBERT, our approach can achieve attack success rates of 53.62\%, 27.79\%, and 35.78\% across three downstream tasks: vulnerability prediction, clone detection and code authorship attribution. On GraphCodeBERT, our approach can achieve average success rates of 76.95\%, 7.96\% and 61.47\% on the three tasks. The above outperforms the baseline by 14.07\% and 18.56\% on the two pre-trained models on average. Finally, we investigated the value of the generated adversarial examples to harden victim models through an adversarial fine-tuning procedure and demonstrated the accuracy of CodeBERT and GraphCodeBERT against ALERT-generated adversarial examples increased by 87.59\% and 92.32\%, respectively.},
+	urldate = {2024-09-10},
+	booktitle = {Proceedings of the 44th {International} {Conference} on {Software} {Engineering}},
+	publisher = {Association for Computing Machinery},
+	author = {Yang, Zhou and Shi, Jieke and He, Junda and Lo, David},
+	month = jul,
+	year = {2022},
+	pages = {1482--1493},
+	annote = {Transformations:
+variable renaming with context synonyms
+Strategy:
+Rename variables with context synonyms. Apply a greedy attack, where variables are replaced based on importance score. Also apply a genetic algorithm to generate adversarial samples
+Metrics:
+Attack success rate (ASR), Variable change rate (VCR), Number of Queries (NoQ)
+Effectiveness:
+A lot better than MHM-NS. also more natural, because synonyms are used.
+Victim models:
+CodeBert, GraphCodeBert
+Downstream languages:
+C, Java, C++, Python
+Downstream tasks:
+Vulnerability prediction, Clone Detection, Authorship attribution
+Dataset:
+Devign dataset
+BigCloneBench
+Google Code Jam Alsulami
+Challenges/Future work:
+Hyperparameter tuning and generalizability to other models and tasks, also boost effectiveness and victim robustness
+What makes this paper unique:
+ALERT: Black-box naturalness attack
+},
+	file = {Submitted Version:files/80/Yang et al. - 2022 - Natural attack for pre-trained models of code.pdf:application/pdf},
+}
+
+@inproceedings{gao_two_2023,
+	address = {Melbourne, Victoria, Australia},
+	series = {{ICSE} '23},
+	title = {Two {Sides} of the {Same} {Coin}: {Exploiting} the {Impact} of {Identifiers} in {Neural} {Code} {Comprehension}},
+	isbn = {978-1-66545-701-9},
+	shorttitle = {Two {Sides} of the {Same} {Coin}},
+	url = {https://doi.org/10.1109/ICSE48619.2023.00164},
+	doi = {10.1109/ICSE48619.2023.00164},
+	abstract = {Previous studies have demonstrated that neural code comprehension models are vulnerable to identifier naming. By renaming as few as one identifier in the source code, the models would output completely irrelevant results, indicating that identifiers can be misleading for model prediction. However, identifiers are not completely detrimental to code comprehension, since the semantics of identifier names can be related to the program semantics. Well exploiting the two opposite impacts of identifiers is essential for enhancing the robustness and accuracy of neural code comprehension, and still remains under-explored. In this work, we propose to model the impact of identifiers from a novel causal perspective, and propose a counterfactual reasoning-based framework named CREAM. CREAM explicitly captures the misleading information of identifiers through multitask learning in the training stage, and reduces the misleading impact by counterfactual inference in the inference stage. We evaluate CREAM on three popular neural code comprehension tasks, including function naming, defect detection and code classification. Experiment results show that CREAM not only significantly outperforms baselines in terms of robustness (e.g., +37.9\% on the function naming task at F1 score), but also achieve improved results on the original datasets (e.g., +0.5\% on the function naming task at F1 score).},
+	urldate = {2024-09-10},
+	booktitle = {Proceedings of the 45th {International} {Conference} on {Software} {Engineering}},
+	publisher = {IEEE Press},
+	author = {Gao, Shuzheng and Gao, Cuiyun and Wang, Chaozheng and Sun, Jun and Lo, David and Yu, Yue},
+	month = jul,
+	year = {2023},
+	pages = {1933--1945},
+	annote = {Transformations:
+change identifier with other identifier from the dataset randomly
+Strategy:
+Replace all identifier names, however, no shadowing checks are mentioned.
+Metrics:
+Precision, Recall, F1, accuracy
+Effectiveness:
+Big drops when using a transformed test set, their method really improves robustness. They do not compare to other SOTA methods
+Victim models:
+CodeNN, NCS, CodeBERT, Devign, TBCNN, ASTNN
+Downstream languages:
+Java, Python, GO, PHP, Javascript, ruby, C
+Downstream tasks:
+Function name prediction
+defect detection
+code classification
+Dataset:
+CodeSearchNet
+Devign
+OJ
+Challenges/Future work:
+more tasks, more models, more datasets, more ensemble techniques, more causal inference techniques
+What makes this paper unique:
+CREAM, counterfactual reasoning that eliminates impact of misleading identifiers. Also improves robustness against other attack methods such as ALERT.
+},
+	file = {Submitted Version:files/86/Gao et al. - 2023 - Two Sides of the Same Coin Exploiting the Impact of Identifiers in Neural Code Comprehension.pdf:application/pdf},
+}
+
+@inproceedings{liu_contrabert_2023,
+	address = {Melbourne, Victoria, Australia},
+	series = {{ICSE} '23},
+	title = {{ContraBERT}: {Enhancing} {Code} {Pre}-{Trained} {Models} via {Contrastive} {Learning}},
+	isbn = {978-1-66545-701-9},
+	shorttitle = {{ContraBERT}},
+	url = {https://doi.org/10.1109/ICSE48619.2023.00207},
+	doi = {10.1109/ICSE48619.2023.00207},
+	abstract = {Large-scale pre-trained models such as CodeBERT, GraphCodeBERT have earned widespread attention from both academia and industry. Attributed to the superior ability in code representation, they have been further applied in multiple downstream tasks such as clone detection, code search and code translation. However, it is also observed that these state-of-the-art pre-trained models are susceptible to adversarial attacks. The performance of these pre-trained models drops significantly with simple perturbations such as renaming variable names. This weakness may be inherited by their downstream models and thereby amplified at an unprecedented scale. To this end, we propose an approach namely ContraBERT that aims to improve the robustness of pre-trained models via contrastive learning. Specifically, we design nine kinds of simple and complex data augmentation operators on the programming language (PL) and natural language (NL) data to construct different variants. Furthermore, we continue to train the existing pre-trained models by masked language modeling (MLM) and contrastive pre-training task on the original samples with their augmented variants to enhance the robustness of the model. The extensive experiments demonstrate that ContraBERT can effectively improve the robustness of the existing pre-trained models. Further study also confirms that these robustness-enhanced models provide improvements as compared to original models over four popular downstream tasks.},
+	urldate = {2024-09-10},
+	booktitle = {Proceedings of the 45th {International} {Conference} on {Software} {Engineering}},
+	publisher = {IEEE Press},
+	author = {Liu, Shangqing and Wu, Bozhi and Xie, Xiaofei and Meng, Guozhu and Liu, Yang},
+	month = jul,
+	year = {2023},
+	pages = {2476--2487},
+	annote = {Transformations:
+Rename function name (name from extra vocabulary set taken from pre-training dataset)
+Rename variable  (name from extra vocabulary set taken from pre-training dataset)
+Insert dead code (assignment with name from extra vocabulary set taken from pre-training dataset)
+Reorder independent statements
+Delete one-line statement? Regularizer?
+Translate comment two ways
+Delete word in comment
+Switch words in comment
+Copy word in comment
+
+Strategy:
+Just apply the transformations a bunch of times randomly
+
+Metrics:
+Mean and average precision (MAP@R), accuracy, BLEU4, MRR
+Effectiveness:
+They visually show that ContraBERT is better bot not really
+Victim models:
+CodeBERT, CodeBERT-Intr, ContraBERT (Their own model) Also ContraBERT trained with only MLM or only Contrastive learning. Also everything with Graph.
+Downstream languages:
+Go, Java, Javascript, PHP, Python, Ruby
+Downstream tasks:
+Clone detection,
+Code search,
+Code translation
+Defect detection
+Dataset:
+CodeSearchNet
+CodeXGLUE
+Challenges/Future work:
+Build more advanced relations between NL and PL.
+Use more complex operators
+What makes this paper unique:
+ContraBERT, solution to the problem of no robustness (maybe not on topic)
+
+
+
+},
+	file = {Submitted Version:files/88/Liu et al. - 2023 - ContraBERT Enhancing Code Pre-Trained Models via Contrastive Learning.pdf:application/pdf},
+}
+
+@misc{srikant_generating_2021,
+	title = {Generating {Adversarial} {Computer} {Programs} using {Optimized} {Obfuscations}},
+	url = {http://arxiv.org/abs/2103.11882},
+	doi = {10.48550/arXiv.2103.11882},
+	abstract = {Machine learning (ML) models that learn and predict properties of computer programs are increasingly being adopted and deployed. These models have demonstrated success in applications such as auto-completing code, summarizing large programs, and detecting bugs and malware in programs. In this work, we investigate principled ways to adversarially perturb a computer program to fool such learned models, and thus determine their adversarial robustness. We use program obfuscations, which have conventionally been used to avoid attempts at reverse engineering programs, as adversarial perturbations. These perturbations modify programs in ways that do not alter their functionality but can be crafted to deceive an ML model when making a decision. We provide a general formulation for an adversarial program that allows applying multiple obfuscation transformations to a program in any language. We develop first-order optimization algorithms to efficiently determine two key aspects -- which parts of the program to transform, and what transformations to use. We show that it is important to optimize both these aspects to generate the best adversarially perturbed program. Due to the discrete nature of this problem, we also propose using randomized smoothing to improve the attack loss landscape to ease optimization. We evaluate our work on Python and Java programs on the problem of program summarization. We show that our best attack proposal achieves a \$52{\textbackslash}\%\$ improvement over a state-of-the-art attack generation approach for programs trained on a seq2seq model. We further show that our formulation is better at training models that are robust to adversarial attacks.},
+	urldate = {2024-09-11},
+	publisher = {arXiv},
+	author = {Srikant, Shashank and Liu, Sijia and Mitrovska, Tamara and Chang, Shiyu and Fan, Quanfu and Zhang, Gaoyuan and O'Reilly, Una-May},
+	month = mar,
+	year = {2021},
+	note = {arXiv:2103.11882 [cs]},
+	keywords = {Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering},
+	annote = {51 citations
+},
+	annote = {Comment: This work will be published at ICLR 2021},
+	annote = {Transformations:
+rename local variables
+rename function parameters
+rename object fields
+replace boolean literals
+insert print statement
+insert dead code
+Following Henkel et al.
+
+Strategy:
+Use Alternating optimization using some kind of gradient descent method.
+Metrics:
+Attack success rate (ASR) and F1 score
+Effectiveness:
+better than ramakrishnan et al. 2020
+Victim models:
+seq2seq
+code2seq
+Downstream languages:
+python, java
+Downstream tasks:
+code summarization (method name prediction)
+Dataset:
+Python dataset by Raychev et al
+One of the code2vec datasets
+Challenges/Future work:
+not mentioned
+What makes this paper unique:
+They split up the problem in choosing locations and choice of transformation. This problem is then decomposable with alternating optimization. They show that randomized smoothing helps.
+},
+	file = {arXiv Fulltext PDF:files/137/Srikant et al. - 2021 - Generating Adversarial Computer Programs using Optimized Obfuscations.pdf:application/pdf;arXiv.org Snapshot:files/138/2103.html:text/html},
+}
+
+@inproceedings{jia_clawsat_2023,
+	title = {{ClawSAT}: {Towards} {Both} {Robust} and {Accurate} {Code} {Models}},
+	shorttitle = {{ClawSAT}},
+	url = {https://ieeexplore.ieee.org/document/10123554},
+	doi = {10.1109/SANER56733.2023.00029},
+	abstract = {We integrate contrastive learning (CL) with adversarial learning to co-optimize the robustness and accuracy of code models. Different from existing works, we show that code obfuscation, a standard code transformation operation, provides novel means to generate complementary ‘views’ of a code that enable us to achieve both robust and accurate code models. To the best of our knowledge, this is the first systematic study to explore and exploit the robustness and accuracy benefits of (multi-view) code obfuscations in code models. Specifically, we first adopt adversarial codes as robustness-promoting views in CL at the self-supervised pre-training phase. This yields improved robustness and transferability for downstream tasks. Next, at the supervised fine-tuning stage, we show that adversarial training with a proper temporally-staggered schedule of adversarial code generation can further improve robustness and accuracy of the pre-trained code model. Built on the above two modules, we develop ClawSAT, a novel self-supervised learning (SSL) framework for code by integrating CL with adversarial views (Claw) with staggered adversarial training (SAT). On evaluating three downstream tasks across Python and Java, we show that ClawSAT consistently yields the best robustness and accuracy (e.g. 11\% in robustness and 6\% in accuracy on the code summarization task in Python). We additionally demonstrate the effectiveness of adversarial learning in Claw by analyzing the characteristics of the loss landscape and interpretability of the pre-trained models. Codes are available at https://github.com/OPTML-Group/Claw-SAT.},
+	urldate = {2024-09-11},
+	booktitle = {2023 {IEEE} {International} {Conference} on {Software} {Analysis}, {Evolution} and {Reengineering} ({SANER})},
+	author = {Jia, Jinghan and Srikant, Shashank and Mitrovska, Tamara and Gan, Chuang and Chang, Shiyu and Liu, Sijia and O’Reilly, Una-May},
+	month = mar,
+	year = {2023},
+	note = {ISSN: 2640-7574},
+	keywords = {Robustness, Software, Systematics, Analytical models, Training, Adversarial machine learning, Codes, Deep Learning, Programming languages},
+	pages = {212--223},
+	annote = {Transformations:
+Follow Henkel and Srikant.
+Strategy:
+Use Bi-level optimization to generate other views (also random) and also generate adversarial samples (low-level, only some)
+Metrics:
+Gen-F1, ROB-F1
+Effectiveness:
+Not really showing attack effectiveness. Showing robustness to attack
+Victim models:
+LSTM-based seq2seq and transformer-based seq2seq, and variations.
+Downstream languages:
+Python and Java
+Downstream tasks:
+Code summarization (text description)
+Code completion
+Clone detection
+Dataset:
+PY-CSN
+PY150
+Java-CSN
+JavaC3s
+Challenges/Future work:
+Create a theoretically sound foundation of their work, look into stronger attack methods and see how code responds to perturbations.
+What makes this paper unique:
+ClawSat: improve robustness and generalization in SSL for code. Maybe not on topic
+},
+	file = {IEEE Xplore Abstract Record:files/152/10123554.html:text/html;Submitted Version:files/151/Jia et al. - 2023 - ClawSAT Towards Both Robust and Accurate Code Models.pdf:application/pdf},
+}
+
+@inproceedings{tian_code_2023,
+	title = {Code {Difference} {Guided} {Adversarial} {Example} {Generation} for {Deep} {Code} {Models}},
+	url = {https://ieeexplore.ieee.org/document/10298520},
+	doi = {10.1109/ASE56229.2023.00149},
+	abstract = {Adversarial examples are important to test and enhance the robustness of deep code models. As source code is discrete and has to strictly stick to complex grammar and semantics constraints, the adversarial example generation techniques in other domains are hardly applicable. Moreover, the adversarial example generation techniques specific to deep code models still suffer from unsatisfactory effectiveness due to the enormous ingredient search space. In this work, we propose a novel adversarial example generation technique (i.e., CODA) for testing deep code models. Its key idea is to use code differences between the target input (i.e., a given code snippet as the model input) and reference inputs (i.e., the inputs that have small code differences but different prediction results with the target input) to guide the generation of adversarial examples. It considers both structure differences and identifier differences to preserve the original semantics. Hence, the ingredient search space can be largely reduced as the one constituted by the two kinds of code differences, and thus the testing process can be improved by designing and guiding corresponding equivalent structure transformations and identifier renaming transformations. Our experiments on 15 deep code models demonstrate the effective-ness and efficiency of CODA, the naturalness of its generated examples, and its capability of enhancing model robustness after adversarial fine-tuning. For example, CODA reveals 88.05 \% and 72.51 \% more faults in models than the state-of-the-art techniques (i.e., CARROT and ALERT) on average, respectively.},
+	urldate = {2024-09-11},
+	booktitle = {2023 38th {IEEE}/{ACM} {International} {Conference} on {Automated} {Software} {Engineering} ({ASE})},
+	author = {Tian, Zhao and Chen, Junjie and Jin, Zhi},
+	month = sep,
+	year = {2023},
+	note = {ISSN: 2643-1572},
+	keywords = {Robustness, Semantics, Testing, Codes, Adversarial Example, Code Model, Code Transformation, Grammar, Guided Testing, Predictive models, Source coding},
+	pages = {850--862},
+	annote = {Transformations:
+Change for to while and vice versa
+Change if-else to if-if and vice versa
+Change numerical calculation (++ -{\textgreater} +=)
+Change constant to variable holding constant and vice versa
+Rename identifiers to ones in target program
+
+Strategy:
+Take reference inputs from the second most likely class and make the target input look like the reference input using metamorphic transformations
+
+Metrics:
+Rate of revealed faults (RFR), Prediction confidence decrement (PCD)
+Effectiveness:
+More effective and efficient than CARROT and ALERT
+Victim models:
+CodeBERT, GraphCodeBERT, CodeT5
+Downstream languages:
+C, Java, Python, C++
+Downstream tasks:
+Vulnerability prediction
+Clone detection
+Authorship attribution
+Functionality classification
+Defect Prediction
+Dataset:
+vulnerability prediction from Devign
+BigCloneBench
+GoogleCodeJam
+OJ
+CodeChef
+Challenges/Future work:
+Improve parameter tuning, Add backtracking to CODA. Use test data to provide reference inputs. Use more interesting obfuscation techniques.
+What makes this paper unique:
+CODA, Actually mentions that there should be a sanity check to avoid name shadowing when renaming identifiers. However, does not consider naturalness. Black-box targeted attack.
+
+
+
+},
+	file = {IEEE Xplore Abstract Record:files/155/10298520.html:text/html;Submitted Version:files/154/Tian et al. - 2023 - Code Difference Guided Adversarial Example Generation for Deep Code Models.pdf:application/pdf},
+}
+
+@inproceedings{henkel_semantic_2022,
+	title = {Semantic {Robustness} of {Models} of {Source} {Code}},
+	url = {https://ieeexplore.ieee.org/document/9825895},
+	doi = {10.1109/SANER53432.2022.00070},
+	abstract = {Deep neural networks are vulnerable to adversarial examples-small input perturbations that result in incorrect predictions. We study this problem for models of source code, where we want the neural network to be robust to source-code modifications that preserve code functionality. To facilitate training robust models, we define a powerful and generic adversary that can employ sequences of parametric, semantics-preserving program transformations. We then explore how, with such an adversary, one can train models that are robust to adversarial program transformations. We conduct a thorough evaluation of our approach and find several surprising facts: we find robust training to beat dataset augmentation in every evaluation we performed; we find that a state-of-the-art architecture (code2seq) for models of code is harder to make robust than a simpler baseline; additionally, we find code2seq to have surprising weaknesses not present in our simpler baseline model; finally, we find that robust models perform better against unseen data from different sources (as one might hope)-however, we also find that robust models are not clearly better in the cross-language transfer task. To the best of our knowledge, we are the first to study the interplay between robustness of models of code and the domain-adaptation and cross-language- transfer tasks.},
+	urldate = {2024-09-12},
+	booktitle = {2022 {IEEE} {International} {Conference} on {Software} {Analysis}, {Evolution} and {Reengineering} ({SANER})},
+	author = {Henkel, Jordan and Ramakrishnan, Goutham and Wang, Zi and Albarghouthi, Aws and Jha, Somesh and Reps, Thomas},
+	month = mar,
+	year = {2022},
+	note = {ISSN: 1534-5351},
+	keywords = {Semantics, Perturbation methods, Neural networks, Training, Codes, Data models, Documentation, Learning from source code, Robust training, Semantics preserving transformations},
+	pages = {526--537},
+	annote = {Transformations:
+Add dead code (not specified)
+insert print statement(not specified)
+rename field, local variable or parameter (not specified)
+replace true and false
+unroll while loop
+wrap statement in try catch
+Strategy:
+same as yefet et al?
+Metrics:
+F1 score
+Effectiveness:
+not compared to sota
+Victim models:
+seq2seq, code2seq
+Downstream languages:
+Java, python
+Downstream tasks:
+method name prediction
+Dataset:
+java-small (c2s)
+csn/java csn/python (codesearchnet)
+Py150k (SRI lab)
+Challenges/Future work:
+other models, tasks, transformations
+What makes this paper unique:
+new way of adversarial training at the time
+},
+	file = {IEEE Xplore Abstract Record:files/171/9825895.html:text/html;Submitted Version:files/170/Henkel et al. - 2022 - Semantic Robustness of Models of Source Code.pdf:application/pdf},
+}
+
+@article{zhang_generating_2020,
+	title = {Generating {Adversarial} {Examples} for {Holding} {Robustness} of {Source} {Code} {Processing} {Models}},
+	volume = {34},
+	copyright = {Copyright (c) 2020 Association for the Advancement of Artificial Intelligence},
+	issn = {2374-3468},
+	url = {https://ojs.aaai.org/index.php/AAAI/article/view/5469},
+	doi = {10.1609/aaai.v34i01.5469},
+	abstract = {Automated processing, analysis, and generation of source code are among the key activities in software and system lifecycle. To this end, while deep learning (DL) exhibits a certain level of capability in handling these tasks, the current state-of-the-art DL models still suffer from non-robust issues and can be easily fooled by adversarial attacks.Different from adversarial attacks for image, audio, and natural languages, the structured nature of programming languages brings new challenges. In this paper, we propose a Metropolis-Hastings sampling-based identifier renaming technique, named {\textbackslash}fullmethod ({\textbackslash}method), which generates adversarial examples for DL models specialized for source code processing. Our in-depth evaluation on a functionality classification benchmark demonstrates the effectiveness of {\textbackslash}method in generating adversarial examples of source code. The higher robustness and performance enhanced through our adversarial training with {\textbackslash}method further confirms the usefulness of DL models-based method for future fully automated source code processing.},
+	language = {en},
+	number = {01},
+	urldate = {2024-09-12},
+	journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+	author = {Zhang, Huangzhao and Li, Zhuo and Li, Ge and Ma, Lei and Liu, Yang and Jin, Zhi},
+	month = apr,
+	year = {2020},
+	note = {Number: 01},
+	pages = {1169--1176},
+	annote = {Transformations:
+Identifier renaming with most effective replacement from vocabulary
+Strategy:
+Select new identifier name stochastically but with probability proportional to decrease in certainty
+Metrics:
+Attack success rate
+Dataset:
+OJ
+Effectiveness:
+Quite effective, sota at the time
+Victim models:
+LSTM, ASTNN
+Downstream languages:
+C/C++
+Downstream tasks:
+functionality classification
+Challenges/Future work:
+use synonyms, structure-based mutations, 
+What makes this paper unique:
+At the time one of the first to do smarter identifier renaming
+},
+	file = {Full Text PDF:files/176/Zhang et al. - 2020 - Generating Adversarial Examples for Holding Robustness of Source Code Processing Models.pdf:application/pdf},
+}
+
+@inproceedings{bielik_adversarial_2020,
+	title = {Adversarial {Robustness} for {Code}},
+	url = {https://proceedings.mlr.press/v119/bielik20a.html},
+	abstract = {Machine learning and deep learning in particular has been recently used to successfully address many tasks in the domain of code such as finding and fixing bugs, code completion, decompilation, type inference and many others. However, the issue of adversarial robustness of models for code has gone largely unnoticed. In this work, we explore this issue by: (i) instantiating adversarial attacks for code (a domain with discrete and highly structured inputs), (ii) showing that, similar to other domains, neural models for code are vulnerable to adversarial attacks, and (iii) combining existing and novel techniques to improve robustness while preserving high accuracy.},
+	language = {en},
+	urldate = {2024-09-12},
+	booktitle = {Proceedings of the 37th {International} {Conference} on {Machine} {Learning}},
+	publisher = {PMLR},
+	author = {Bielik, Pavol and Vechev, Martin},
+	month = nov,
+	year = {2020},
+	note = {ISSN: 2640-3498},
+	pages = {896--907},
+	annote = {Transformations:
+variable renaming (to what?)
+object field renaming
+property assignment renaming
+number, string and boolean substitution
+new function parameters
+new method arguments
+ternary expressions (a -{\textgreater} b ? a : a)
+array access (a -{\textgreater} [a, a][const])
+add side-effect free expression
+add object expression
+
+new expressions can be existing expressions or random binary expressions.
+
+Strategy:
+Unclear, they run for 1000 iterations with renaming attack and for 300 with structural attack
+Metrics:
+Accuracy, robustness
+Effectiveness:
+wrong about half of the time?
+Victim models:
+LSTM, DeepTyper, GCN, GNT, GGNN
+Downstream languages:
+typescript, javascript
+Downstream tasks:
+type inference
+Datasets:
+Compiled their own at https://github.com/eth-sri/robust-code
+Challenges/Future work:
+Formal verifications, other tasks, natural modifications, combining modifications.
+What makes this paper unique:
+Very interesting and more in the spirit of metamorphic testing, since they apply semantic-altering, but label-preserving modifications for the task of type inference. other than that, they train the model to abstain and also do other defense techniques
+},
+	file = {Full Text PDF:files/178/Bielik and Vechev - 2020 - Adversarial Robustness for Code.pdf:application/pdf;Supplementary PDF:files/179/Bielik and Vechev - 2020 - Adversarial Robustness for Code.pdf:application/pdf},
+}
+
+@article{zhang_towards_2022,
+	title = {Towards {Robustness} of {Deep} {Program} {Processing} {Models}—{Detection}, {Estimation}, and {Enhancement}},
+	volume = {31},
+	issn = {1049-331X},
+	url = {https://dl.acm.org/doi/10.1145/3511887},
+	doi = {10.1145/3511887},
+	abstract = {Deep learning (DL) has recently been widely applied to diverse source code processing tasks in the software engineering (SE) community, which achieves competitive performance (e.g., accuracy). However, the robustness, which requires the model to produce consistent decisions given minorly perturbed code inputs, still lacks systematic investigation as an important quality indicator. This article initiates an early step and proposes a framework CARROT for robustness detection, measurement, and enhancement of DL models for source code processing. We first propose an optimization-based attack technique CARROTA to generate valid adversarial source code examples effectively and efficiently. Based on this, we define the robustness metrics and propose robustness measurement toolkit CARROTM, which employs the worst-case performance approximation under the allowable perturbations. We further propose to improve the robustness of the DL models by adversarial training (CARROTT) with our proposed attack techniques. Our in-depth evaluations on three source code processing tasks (i.e., functionality classification, code clone detection, defect prediction) containing more than 3 million lines of code and the classic or SOTA DL models, including GRU, LSTM, ASTNN, LSCNN, TBCNN, CodeBERT, and CDLH, demonstrate the usefulness of our techniques for ❶ effective and efficient adversarial example detection, ❷ tight robustness estimation, and ❸ effective robustness enhancement.},
+	number = {3},
+	urldate = {2024-09-12},
+	journal = {ACM Trans. Softw. Eng. Methodol.},
+	author = {Zhang, Huangzhao and Fu, Zhiyi and Li, Ge and Ma, Lei and Zhao, Zhehao and Yang, Hua’an and Sun, Yizhe and Liu, Yang and Jin, Zhi},
+	month = apr,
+	year = {2022},
+	pages = {50:1--50:40},
+	annote = {Transformations:
+rename variable with word in vocabulary
+rename user-defined data type word in vocabulary
+rename function word in vocabulary
+insert or delete empty stetement from insertable statement set (not specified)
+insert or delete emtpy branch from insertable statement set (not specified)
+insert or delete empty loop from insertable statement set (not specified)
+Strategy:
+Similar to MHM. However, take the gradient in embedding space into account when mutating identifiers. Randomly apply structural transformations.
+Metrics:
+Accuracy, precision, recall, f1
+Effectiveness:
+Better than MHM
+Victim models:
+GRU, LSTM, ASTNN, LSCNN, TBCNN, CodeBERT, CLDH
+Downstream languages:
+Java, C and C++
+Downstream tasks:
+Functionality classification, code clone detection, code defect prediction
+Challenges/Future work:
+call to arms and continued research
+Datasets:
+OJ, OJClone, CodeChef
+What makes this paper unique:
+They define robustness. Also, they use white-box optimization. framework for robustness detection, measurement and enhancement.
+},
+	file = {Full Text PDF:files/181/Zhang et al. - 2022 - Towards Robustness of Deep Program Processing Models—Detection, Estimation, and Enhancement.pdf:application/pdf},
+}
+
+@article{rabin_generalizability_2021,
+	title = {On the generalizability of {Neural} {Program} {Models} with respect to semantic-preserving program transformations},
+	volume = {135},
+	issn = {0950-5849},
+	url = {https://www.sciencedirect.com/science/article/pii/S0950584921000379},
+	doi = {10.1016/j.infsof.2021.106552},
+	abstract = {Context:
+With the prevalence of publicly available source code repositories to train deep neural network models, neural program models can do well in source code analysis tasks such as predicting method names in given programs that cannot be easily done by traditional program analysis techniques. Although such neural program models have been tested on various existing datasets, the extent to which they generalize to unforeseen source code is largely unknown.
+Objective:
+Since it is very challenging to test neural program models on all unforeseen programs, in this paper, we propose to evaluate the generalizability of neural program models with respect to semantic-preserving transformations: a generalizable neural program model should perform equally well on programs that are of the same semantics but of different lexical appearances and syntactical structures.
+Method:
+We compare the results of various neural program models for the method name prediction task on programs before and after automated semantic-preserving transformations. We use three Java datasets of different sizes and three state-of-the-art neural network models for code, namely code2vec, code2seq, and GGNN, to build nine such neural program models for evaluation.
+Results:
+Our results show that even with small semantically preserving changes to the programs, these neural program models often fail to generalize their performance. Our results also suggest that neural program models based on data and control dependencies in programs generalize better than neural program models based only on abstract syntax trees (ASTs). On the positive side, we observe that as the size of the training dataset grows and diversifies the generalizability of correct predictions produced by the neural program models can be improved too.
+Conclusion:
+Our results on the generalizability of neural program models provide insights to measure their limitations and provide a stepping stone for their improvement.},
+	urldate = {2024-09-12},
+	journal = {Information and Software Technology},
+	author = {Rabin, Md Rafiqul Islam and Bui, Nghi D. Q. and Wang, Ke and Yu, Yijun and Jiang, Lingxiao and Alipour, Mohammad Amin},
+	month = jul,
+	year = {2021},
+	keywords = {Program transformation, Code representation, Generalizability, Model evaluation, Neural models},
+	pages = {106552},
+	annote = {Transformations:
+rename variable to varN
+swap independent statements
+add unused string declaration to random block (not specifier clearly what)
+swap for/while
+swap switch/if
+swap boolean and propagate
+Strategy:
+Single-place transformed programs, all-place transformed programs
+Metrics:
+Prediction change percentage
+types of changes: wrong-{\textgreater}right, all possible ways
+precision, recall, f1
+Effectiveness:
+pretty effective, like 50\% changes its prediction
+Victim models:
+code2vec, code2seq, GGNN
+Downstream languages:
+Java
+Downstream tasks:
+method name prediction
+Datasets:
+java-small, java-med, java-large
+Challenges/Future work:
+more transformations, more metrics, program repair
+What makes this paper unique:
+wriong/right is a questionable metric if similar answers exist. check per transformation how effective.
+},
+	file = {ScienceDirect Snapshot:files/189/S0950584921000379.html:text/html;Submitted Version:files/190/Rabin et al. - 2021 - On the generalizability of Neural Program Models with respect to semantic-preserving program transfo.pdf:application/pdf},
+}
+
+@article{zhang_challenging_2023,
+	title = {Challenging {Machine} {Learning}-{Based} {Clone} {Detectors} via {Semantic}-{Preserving} {Code} {Transformations}},
+	volume = {49},
+	issn = {1939-3520},
+	url = {https://ieeexplore.ieee.org/document/10028657},
+	doi = {10.1109/TSE.2023.3240118},
+	abstract = {Software clone detection identifies similar or identical code snippets. It has been an active research topic that attracts extensive attention over the last two decades. In recent years, machine learning (ML) based detectors, especially deep learning-based ones, have demonstrated impressive capability on clone detection. It seems that this longstanding problem has already been tamed owing to the advances in ML techniques. In this work, we would like to challenge the robustness of the recent ML-based clone detectors through code semantic-preserving transformations. We first utilize fifteen simple code transformation operators combined with commonly-used heuristics (i.e., Random Search, Genetic Algorithm, and Markov Chain Monte Carlo) to perform equivalent program transformation. Furthermore, we propose a deep reinforcement learning-based sequence generation (DRLSG) strategy to effectively guide the search process of generating clones that could escape from the detection. We then evaluate the ML-based detectors with the pairs of original and generated clones. We realize our method in a framework named CloneGen (stands for Clone Generator). CloneGen In evaluation, we challenge the three state-of-the-art ML-based detectors and four traditional detectors with the code clones after semantic-preserving transformations via the aid of CloneGen. Surprisingly, our experiments show that, despite the notable successes achieved by existing clone detectors, the ML models inside these detectors still cannot distinguish numerous clones produced by the code transformations in CloneGen. In addition, adversarial training of ML-based clone detectors using clones generated by CloneGen can improve their robustness and accuracy. Meanwhile, compared with the commonly-used heuristics, the DRLSG strategy has shown the best effectiveness in generating code clones to decrease the detection accuracy of the ML-based detectors. Our investigation reveals an explicable but always ignored robustness issue of the latest ML-based detectors. Therefore, we call for more attention to the robustness of these new ML-based detectors.},
+	number = {5},
+	urldate = {2024-09-12},
+	journal = {IEEE Transactions on Software Engineering},
+	author = {Zhang, Weiwei and Guo, Shengjian and Zhang, Hongyu and Sui, Yulei and Xue, Yinxing and Xu, Yun},
+	month = may,
+	year = {2023},
+	note = {Conference Name: IEEE Transactions on Software Engineering},
+	keywords = {Robustness, Semantics, Training, Codes, Source coding, Clone detection, Cloning, code transformaiton, Detectors, machinae learning, semantic clone},
+	pages = {3052--3070},
+	annote = {Transformations:
+function and variable renaming (unclear with what)
+transform for/while
+transform do-while to while
+transform if elsif to if else
+transform if else to if elseif
+transform switch to if elseif
+transform relational expression (a{\textgreater}b -{\textgreater} b{\textless}a)
+unfold operators (i++, i+=1, i=i+1)
+modify constants (8-{\textgreater}a-b)
+split variable definition
+add junk code (unclear what junk code)
+swap independent statements
+delete comments and print statements
+Strategy:
+random search, genetic algorithm and Markov-chain monte carlo strategy based on n-gram algorithm. Also a DRL algorithm that actually takes in the feedback
+Metrics:
+Precision, Recall and f1 measure
+Effectiveness:
+not compared to sota methods
+Victim models:
+ASTNN, TBCCD, TextLSTM
+Downstream languages:
+C/C++
+Downstream tasks:
+Clone detection
+Dataset:
+OJClone
+Challenges/Future work:
+Apply to other languages, detectores, operator effectiveness
+What makes this paper unique:
+CloneGen, another lightweight and effective code transformation framework, this one for assessing robustness of clone detection models
+},
+	file = {IEEE Xplore Abstract Record:files/216/10028657.html:text/html;Submitted Version:files/215/Zhang et al. - 2023 - Challenging Machine Learning-Based Clone Detectors via Semantic-Preserving Code Transformations.pdf:application/pdf},
+}
+
+@inproceedings{na_dip_2023,
+	address = {Toronto, Canada},
+	title = {{DIP}: {Dead} code {Insertion} based {Black}-box {Attack} for {Programming} {Language} {Model}},
+	shorttitle = {{DIP}},
+	url = {https://aclanthology.org/2023.acl-long.430},
+	doi = {10.18653/v1/2023.acl-long.430},
+	abstract = {Automatic processing of source code, such as code clone detection and software vulnerability detection, is very helpful to software engineers. Large pre-trained Programming Language (PL) models (such as CodeBERT, GraphCodeBERT, CodeT5, etc.), show very powerful performance on these tasks. However, these PL models are vulnerable to adversarial examples that are generated with slight perturbation. Unlike natural language, an adversarial example of code must be semantic-preserving and compilable. Due to the requirements, it is hard to directly apply the existing attack methods for natural language models. In this paper, we propose DIP (Dead code Insertion based Black-box Attack for Programming Language Model), a high-performance and effective black-box attack method to generate adversarial examples using dead code insertion. We evaluate our proposed method on 9 victim downstream-task large code models. Our method outperforms the state-of-the-art black-box attack in both attack efficiency and attack quality, while generated adversarial examples are compiled preserving semantic functionality.},
+	urldate = {2024-09-13},
+	booktitle = {Proceedings of the 61st {Annual} {Meeting} of the {Association} for {Computational} {Linguistics} ({Volume} 1: {Long} {Papers})},
+	publisher = {Association for Computational Linguistics},
+	author = {Na, CheolWon and Choi, YunSeok and Lee, Jee-Hyong},
+	editor = {Rogers, Anna and Boyd-Graber, Jordan and Okazaki, Naoaki},
+	month = jul,
+	year = {2023},
+	pages = {7777--7791},
+	annote = {Transformations:
+Insert unused variable
+Strategy:
+find vulnerable positions by inserting an UNK sequence. select statement from dissimilar piece of code based on attention score of a pre-trained model. Insert snippet as String var = “snippet“ at vulnerable position
+Metrics:
+ASR, number of queries, amount of perturbations, codeBLEU
+Effectiveness:
+More effective and efficient than MHM and ALERT
+Victim models:
+CodeBERT, GraphCodeBERT, CodeT5
+Downstream languages:
+Java, C/C++, Python
+Downstream tasks:
+Clone detection, defect detection, authorship attribution
+Dataset:
+BigCloneBench
+Devign
+Google code Jam Alsulami et al
+Challenges/Future work:
+Still not time efficient because it needs to query a pre-trained model.
+What makes this paper unique:
+DIP, supposedly better than other models.
+},
+	file = {Full Text PDF:files/218/Na et al. - 2023 - DIP Dead code Insertion based Black-box Attack for Programming Language Model.pdf:application/pdf},
+}
+
+@misc{quiring_misleading_2019,
+	title = {Misleading {Authorship} {Attribution} of {Source} {Code} using {Adversarial} {Learning}},
+	url = {http://arxiv.org/abs/1905.12386},
+	doi = {10.48550/arXiv.1905.12386},
+	abstract = {In this paper, we present a novel attack against authorship attribution of source code. We exploit that recent attribution methods rest on machine learning and thus can be deceived by adversarial examples of source code. Our attack performs a series of semantics-preserving code transformations that mislead learning-based attribution but appear plausible to a developer. The attack is guided by Monte-Carlo tree search that enables us to operate in the discrete domain of source code. In an empirical evaluation with source code from 204 programmers, we demonstrate that our attack has a substantial effect on two recent attribution methods, whose accuracy drops from over 88\% to 1\% under attack. Furthermore, we show that our attack can imitate the coding style of developers with high accuracy and thereby induce false attributions. We conclude that current approaches for authorship attribution are inappropriate for practical application and there is a need for resilient analysis techniques.},
+	urldate = {2024-09-13},
+	publisher = {arXiv},
+	author = {Quiring, Erwin and Maier, Alwin and Rieck, Konrad},
+	month = may,
+	year = {2019},
+	note = {arXiv:1905.12386 [cs, stat]},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Cryptography and Security},
+	annote = {125 citations
+},
+	annote = {Comment: USENIX Security Symposium 2019},
+	annote = {Transformations:
+
+Control transformations:
+replace for/while
+move block to standalone function (name not specified)
+move deepest block to standalone function (name not specified)
+split if statement with logical operands
+
+Declaration Tansformations:
+convert array into C++ vector
+convert C char array to C++ string or vice versa
+promote integral type to next higher type  (int -{\textgreater} long)
+convert float to double
+convert bool to int
+convert int to bool if used as bool
+convert type to new type via typedef or remove typedef
+remove unnecessary includes
+remove unused variables or functions
+move declaration into or out of control statement
+
+API transformations:
+use stdin instead of files and vice versa
+use stdout instead of files and vice versa
+swap C/C++ APIs for reading
+swap C/C++ APIs for writing
+enable or remove sync of C/C++ streams if possible
+
+Template transformations(also used with tempates to impersonate authors)
+Rename identifier with either default values such as single-letter variable names or identifiers from dataset
+add includes from dataset
+add global declarations from dataset
+add type using typedef from datset
+
+Misc transformations:
+add or delete compound statement \{\} if possible
+add return statement to main method explicitly
+substitute literal return to variable return
+
+Strategy:
+Use monte-carlo tree search to iteratively select the best transformations
+Metrics:
+attack success rate
+Effectiveness:
+pretty high success rate
+Victim models:
+RF by caliskan
+LSTM for authorship attribution
+Downstream languages:
+C/C++
+Downstream tasks:
+authorship attribution
+Datasets:
+2017 google code jam
+Challenges/Future work:
+use of alternative techniques for authorship attribution
+What makes this paper unique:
+Use monte-carlo tree search to construct attacks
+},
+	file = {arXiv Fulltext PDF:files/221/Quiring et al. - 2019 - Misleading Authorship Attribution of Source Code using Adversarial Learning.pdf:application/pdf;arXiv.org Snapshot:files/222/1905.html:text/html},
+}
+
+@misc{li_cctest_2023,
+	title = {{CCTEST}: {Testing} and {Repairing} {Code} {Completion} {Systems}},
+	shorttitle = {{CCTEST}},
+	url = {http://arxiv.org/abs/2208.08289},
+	doi = {10.48550/arXiv.2208.08289},
+	abstract = {Code completion, a highly valuable topic in the software development domain, has been increasingly promoted for use by recent advances in large language models (LLMs). To date, visible LLM-based code completion frameworks such as GitHub Copilot and GPT are trained using deep learning over vast quantities of unstructured text and open source code. As the paramount component and the cornerstone in daily programming tasks, code completion has largely boosted professionals' efficiency in building real-world software systems. In contrast to this flourishing market, we find that code completion systems often output suspicious results, and to date, an automated testing and enhancement framework for code completion systems is not available. This research proposes CCTEST, a framework to test and repair code completion systems in blackbox settings. CCTEST features a set of novel mutation strategies, namely program structure-correlated (PSC) mutations, to generate mutated code completion inputs. Then, it detects inconsistent outputs, representing possibly erroneous cases, from all the completed code cases. Moreover, CCTEST repairs the code completion outputs by selecting the output that mostly reflects the "average" appearance of all output cases, as the final output of the code completion systems. We detected a total of 33,540 inputs (with a true positive rate of 86\%) that can trigger erroneous cases from eight popular LLM-based code completion systems. With repairing, we show that the accuracy of code completion systems is notably increased by 40\% and 67\% with respect to BLEU score and Levenshtein edit similarity.},
+	urldate = {2024-09-16},
+	publisher = {arXiv},
+	author = {Li, Zongjie and Wang, Chaozheng and Liu, Zhibo and Wang, Haoxuan and Chen, Dong and Wang, Shuai and Gao, Cuiyun},
+	month = may,
+	year = {2023},
+	note = {arXiv:2208.08289 [cs]},
+	keywords = {Computer Science - Software Engineering},
+	annote = {43 citations
+
+},
+	annote = {Comment: 13 pages, 10 figures, 5 tables. Accepted by ICSE 2023},
+	annote = {Transformations:
+rename variable to template value
+rename variable with context in mind
+rename parameter to template value
+rename variable with context in mind
+replace instruction with equivalent instruction (a += b -{\textgreater} a = a + b)
+replace boolean expression with equivalent expression (b==b)
+insert template garbage code
+insert context garbage code
+insert print of variable.
+Strategy:
+Apply all feasible transformations??
+Metrics:
+BLEU and edit similarity
+Effectiveness:
+Not really compared to other methods
+Victim models:
+Github copilot, CodeParrot, GPT-Neo, GPT-J, CodeGen
+Downstream languages:
+Python
+Downstream tasks:
+Code completion
+Dataset:
+CodeSearchNet
+LeetCode solutions https://github.com/JiayangWu/LeetCode-Python
+Challenges/Future work:
+all outputs share aligned yet erroneous code. general and well-known hurdle. realism is still to be improved, other settings
+What makes this paper unique:
+CCTest, They argue that it is hard to define metrics for code completion, since code with very different syntax can still have correct semantics. They propose a tool for testing and enhancing code completion.
+},
+	file = {arXiv Fulltext PDF:files/231/Li et al. - 2023 - CCTEST Testing and Repairing Code Completion Systems.pdf:application/pdf;arXiv.org Snapshot:files/232/2208.html:text/html},
+}
+
+@inproceedings{jain_contrastive_2021,
+	title = {Contrastive {Code} {Representation} {Learning}},
+	url = {http://arxiv.org/abs/2007.04973},
+	doi = {10.18653/v1/2021.emnlp-main.482},
+	abstract = {Recent work learns contextual representations of source code by reconstructing tokens from their context. For downstream semantic understanding tasks like summarizing code in English, these representations should ideally capture program functionality. However, we show that the popular reconstruction-based BERT model is sensitive to source code edits, even when the edits preserve semantics. We propose ContraCode: a contrastive pre-training task that learns code functionality, not form. ContraCode pre-trains a neural network to identify functionally similar variants of a program among many non-equivalent distractors. We scalably generate these variants using an automated source-to-source compiler as a form of data augmentation. Contrastive pre-training improves JavaScript summarization and TypeScript type inference accuracy by 2\% to 13\%. We also propose a new zero-shot JavaScript code clone detection dataset, showing that ContraCode is both more robust and semantically meaningful. On it, we outperform RoBERTa by 39\% AUROC in an adversarial setting and up to 5\% on natural code.},
+	urldate = {2024-09-16},
+	booktitle = {Proceedings of the 2021 {Conference} on {Empirical} {Methods} in {Natural} {Language} {Processing}},
+	author = {Jain, Paras and Jain, Ajay and Zhang, Tianjun and Abbeel, Pieter and Gonzalez, Joseph E. and Stoica, Ion},
+	year = {2021},
+	note = {arXiv:2007.04973 [cs, stat]},
+	keywords = {Computer Science - Artificial Intelligence, Computer Science - Machine Learning, Computer Science - Programming Languages, Computer Science - Software Engineering, Statistics - Machine Learning},
+	pages = {5954--5971},
+	annote = {Comment: In Proceedings of EMNLP 2021. 19 pages, 16 figures, 9 tables. Code available at https://github.com/parasj/contracode},
+	annote = {Transformations:
+Auto-formatting of code?
+Dead code elimination
+type upconversion? (true -{\textgreater} 1)
+Constant folding.
+Rename arguments with random word sequences.
+Replace identifiers with short tokens
+insert dead code like comments and logging.
+subword regularization?
+sample 90\% of lines. (regularizer)
+Strategy:
+Just apply 20 random transformations lol
+Metrics:
+AUROC (area under receiver operating characteristic)
+average precision
+precision
+recall
+f1
+accuracy
+Effectiveness:
+seems to be effective but not compared to other sota methods.
+
+Victim models:
+LSTM
+Transformer
+roBERTa MLM
+DeepTyper
+GPT-3 Codex
+code2vec
+code2seq
+Downstream languages:
+JavaScript
+Downstream tasks:
+Code clone detection
+type inference
+extreme code summarization (method name prediction)
+Dataset:
+CodeSearchNet
+Challenges/Future work:
+none
+What makes this paper unique:
+They say that they let the model learn what code does and not what it says.
+},
+	file = {arXiv Fulltext PDF:files/247/Jain et al. - 2021 - Contrastive Code Representation Learning.pdf:application/pdf;arXiv.org Snapshot:files/248/2007.html:text/html},
+}
+
+@inproceedings{ding_adversarial_2024,
+	address = {New York, NY, USA},
+	series = {{EASE} '24},
+	title = {Adversarial {Attack} and {Robustness} {Improvement} on {Code} {Summarization}},
+	isbn = {9798400717017},
+	url = {https://dl.acm.org/doi/10.1145/3661167.3661173},
+	doi = {10.1145/3661167.3661173},
+	abstract = {Automatic code summarization, also known as code comment generation, has been proven beneficial for developers to understand better and maintain software projects. However, few research works have investigated the robustness of such models. Robustness requires that the model sustains the quality of the output summaries in the presence of perturbations to the inputs. In this paper, we provide an in-depth study of the robustness of code summarization models. We propose CREATE (Code summaRization modEl’s Adversarial aTtackEr), an approach for performing adversarial attacks against the model. This approach can generate adversarial samples to mislead the model and explore its robustness while ensuring these samples are compilable and semantically similar. We attack mainstream code summarization models with a large-scale available Java dataset to evaluate the effectiveness and efficiency of our approach. The experimental results indicate that CREATE’s attack effectiveness and efficiency surpasses other baselines, causing a decrease in the quality of generated comments by at least 40\%. Furthermore, we investigate the magnitude of perturbation caused by CREATE during adversarial attacks, and the results show that the similarity between the adversarial samples generated by CREATE and the input code is approximately 0.8, demonstrating that it induces more minor perturbations compared to other baselines. Finally, we utilize CREATE for adversarial training of the model. Through experimentation, this approach indeed effectively enhances the model’s robustness.},
+	urldate = {2024-09-18},
+	booktitle = {Proceedings of the 28th {International} {Conference} on {Evaluation} and {Assessment} in {Software} {Engineering}},
+	publisher = {Association for Computing Machinery},
+	author = {Ding, Xi and Huang, Yuan and Chen, Xiangping and Bian, Jing},
+	month = jun,
+	year = {2024},
+	pages = {17--27},
+	annote = {Transformations:
+Replace function names with 5 most similar words
+Replace variable names with 5 most similar words
+Replace parameter names with 5 most similar words
+Strategy:
+Use MHM to create adversarial examples
+Metrics:
+BLEU, ROUGE, METEOR
+Effectiveness:
+Outperforms ACCENT a bit
+Victim models:
+LSTM-based seq2seq, GRU-based seq2seq, Transformer-based seq2seq and Hybrid-deepcom seq2seq
+Downstream languages:
+Java
+Downstream tasks:
+Code summarization (text)
+Datasets:
+Summarization dataset by HU et al. https://ink.library.smu.edu.sg/sis\_research/4295/
+Challenges/Future work:
+Expand the current framework + target the AST structure
+What makes this paper unique:
+CREATE, semantically similar and effetive adversarial attacks for code summarization. The samples are good for increasing robustness. Also black-box
+
+},
+	file = {Full Text PDF:files/305/Ding et al. - 2024 - Adversarial Attack and Robustness Improvement on Code Summarization.pdf:application/pdf},
+}
+
+@article{zhang_codebert-attack_2024,
+	title = {{CodeBERT}-{Attack}: {Adversarial} attack against source code deep learning models via pre-trained model},
+	volume = {36},
+	copyright = {© 2023 John Wiley \& Sons Ltd.},
+	issn = {2047-7481},
+	shorttitle = {{CodeBERT}-{Attack}},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/smr.2571},
+	doi = {10.1002/smr.2571},
+	abstract = {Over the past few years, the software engineering (SE) community has widely employed deep learning (DL) techniques in many source code processing tasks. Similar to other domains like computer vision and natural language processing (NLP), the state-of-the-art DL techniques for source code processing can still suffer from adversarial vulnerability, where minor code perturbations can mislead a DL model's inference. Efficiently detecting such vulnerability to expose the risks at an early stage is an essential step and of great importance for further enhancement. This paper proposes a novel black-box effective and high-quality adversarial attack method, namely CodeBERT-Attack (CBA), based on the powerful large pre-trained model (i.e., CodeBERT) for DL models of source code processing. CBA locates the vulnerable positions through masking and leverages the power of CodeBERT to generate textual preserving perturbations. We turn CodeBERT against DL models and further fine-tuned CodeBERT models for specific downstream tasks, and successfully mislead these victim models to erroneous outputs. In addition, taking the power of CodeBERT, CBA is capable of effectively generating adversarial examples that are less perceptible to programmers. Our in-depth evaluation on two typical source code classification tasks (i.e., functionality classification and code clone detection) against the most widely adopted LSTM and the powerful fine-tuned CodeBERT models demonstrate the advantages of our proposed technique in terms of both effectiveness and efficiency. Furthermore, our results also show (1) that pre-training may help CodeBERT gain resilience against perturbations further, and (2) certain pre-training tasks may be beneficial for adversarial robustness.},
+	language = {en},
+	number = {3},
+	urldate = {2024-09-18},
+	journal = {Journal of Software: Evolution and Process},
+	author = {Zhang, Huangzhao and Lu, Shuai and Li, Zhuo and Jin, Zhi and Ma, Lei and Liu, Yang and Li, Ge},
+	year = {2024},
+	note = {\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/smr.2571},
+	keywords = {black-box adversarial attack, pre-trained model, source code classification},
+	pages = {e2571},
+	annote = {Transformations:
+Identifier renaming to similar values
+
+Strategy:
+Use CodeBERT to generate similar tokens, generate the best combinations, and select the ones that cause the largest drop in predicted ground-truth probability.
+
+Metrics:
+Attack success rate, performance decrease
+
+Effectiveness:
+More effective than MHM
+
+Victim models:
+LSTM, CodeBERT-MLM, CodeBERT, GraphCodeBERT
+
+Downstream languages:
+C, C++, Java
+
+Downstream tasks:
+Functionality classification
+Clone detection
+
+Dataset:
+OJ, OJClone
+Challenges/Future work:
+They argue that the changes should also be imperceptible to humans, so they do not apply large structural changes.
+They also propose to use adversarial pre-training.
+Exact black-box is very difficult
+
+What makes this paper unique:
+Using codeBERT to attack codeBERT, takes into account naturalness but does not compare with ALERT.
+
+
+},
+	file = {Full Text PDF:files/307/Zhang et al. - 2024 - CodeBERT-Attack Adversarial attack against source code deep learning models via pre-trained model.pdf:application/pdf;Snapshot:files/308/smr.html:text/html},
+}
+
+@article{yang_exploiting_2024,
+	title = {Exploiting the {Adversarial} {Example} {Vulnerability} of {Transfer} {Learning} of {Source} {Code}},
+	volume = {19},
+	issn = {1556-6021},
+	url = {https://ieeexplore.ieee.org/document/10531252},
+	doi = {10.1109/TIFS.2024.3402153},
+	abstract = {State-of-the-art source code classification models exhibit excellent task transferability, in which the source code encoders are first pre-trained on a source domain dataset in a self-supervised manner and then fine-tuned on a supervised downstream dataset. Recent studies reveal that source code models are vulnerable to adversarial examples, which are crafted by applying semantic-preserving transformations that can mislead the prediction of the victim model. While existing research has introduced practical black-box adversarial attacks, these are often designed for transfer-based or query-based scenarios, necessitating access to the victim domain dataset or the query feedback of the victim system. These attack resources are very challenging or expensive to obtain in real-world situations. This paper proposes the cross-domain attack threat model against the transfer learning of source code where the adversary has only access to an open-sourced pre-trained code encoder. To achieve such realistic attacks, this paper designs the Code Transfer learning Adversarial Example (CodeTAE) method. CodeTAE applies various semantic-preserving transformations and utilizes a genetic algorithm to generate powerful identifiers, thereby enhancing the transferability of the generated adversarial examples. Experimental results on three code classification tasks show that the CodeTAE attack can achieve 30\% {\textbackslash}sim 80 \% attack success rates under the cross-domain cross-architecture setting. Besides, the generated CodeTAE adversarial examples can be used in adversarial fine-tuning to enhance both the clean accuracy and the robustness of the code model. Our code is available at https://github.com/yyl-github-1896/CodeTAE/.},
+	urldate = {2024-09-18},
+	journal = {IEEE Transactions on Information Forensics and Security},
+	author = {Yang, Yulong and Fan, Haoran and Lin, Chenhao and Li, Qian and Zhao, Zhengyu and Shen, Chao},
+	year = {2024},
+	note = {Conference Name: IEEE Transactions on Information Forensics and Security},
+	keywords = {Task analysis, Training, Codes, Source coding, adversarial transferability, Computational modeling, cross-domain adversarial attack, Feature extraction, source code models, Transfer learning},
+	pages = {5880--5894},
+	annote = {Transformations:
+identifier renaming
+insert unused variable
+insert empty print
+insert empty if
+insert empty while
+Strategy:
+choose names that maximize the difference in embedding via GA (I think)
+Insert at most important locations, check if it increases the loss
+Metrics:
+Attack success rate
+Effectiveness:
+more effective thanMHM and ALERT, number of required changes
+Victim models:
+CodeBERT, GraphCodeBert, CodeT5
+Downstream languages:
+Python, Java, C
+Downstream tasks:
+Authorship attribution
+Clone detection
+Defect detection
+Datasets:
+Authorship attribution from google code jam
+BigCloneBench
+FFmpeg3 and Qemu4
+Challenges/Future work:
+more code transformation operators, try on LLMs
+What makes this paper unique:
+good for crossdomain, uses only surrogate encoder to determine adversarial examples.
+},
+	file = {IEEE Xplore Abstract Record:files/312/10531252.html:text/html;IEEE Xplore Full Text PDF:files/313/Yang et al. - 2024 - Exploiting the Adversarial Example Vulnerability of Transfer Learning of Source Code.pdf:application/pdf},
+}
+
+@inproceedings{chen_generating_2022,
+	title = {Generating {Adversarial} {Source} {Programs} {Using} {Important} {Tokens}-based {Structural} {Transformations}},
+	url = {https://ieeexplore.ieee.org/document/9763729},
+	doi = {10.1109/ICECCS54210.2022.00029},
+	abstract = {Deep learning models have been widely used in source code processing tasks, such as code captioning, code summarization, code completion, and code classification. Recent studies have shown that deep learning-based source code processing models are vulnerable. Attackers can generate adversarial examples by adding perturbations to source programs. Existing attack methods perturb a source program by renaming one or multiple variables in the program. These attack methods do not take into account the perturbation of the equivalent structural transformations of the source code. We propose a set of program transformations involving identifier renaming and structural transformations, which can ensure that the perturbed program retains the original semantics but can fool the source code processing model to change the original prediction result. We propose a novel method of applying semantics-preserving structural transformations to attack the source program pro-cessing model in the white-box setting. This is the first time that semantics-preserving structural transformations are applied to generate adversarial examples of source code processing models. We first find the important tokens in the program by calculating the contribution values of each part of the program, then select the best transformation for each important token to generate semantic adversarial examples. The experimental results show that the attack success rate of our attack method can improve 8.29 \% on average compared with the state-of-the-art attack method; adversarial training using the adversarial examples generated by our attack method can reduce the attack success rates of source code processing models by 21.79\% on average.},
+	urldate = {2024-09-18},
+	booktitle = {2022 26th {International} {Conference} on {Engineering} of {Complex} {Computer} {Systems} ({ICECCS})},
+	author = {Chen, Penglong and Li, Zhen and Wen, Yu and Liu, Lili},
+	month = mar,
+	year = {2022},
+	keywords = {Semantics, Software, Perturbation methods, Deep learning, Training, Codes, Predictive models, adversarial examples, deep learning, program transformation, software security, source code},
+	pages = {173--182},
+	annote = {Transformations:
+identifier renaming based on gradients to maximize disruption
+loop exchange
+comparison operator exchange
+boolean exchange
+prefix and suffix exchange
+
+Strategy:
+Choose important tokens using a white-box method, use Yefet’s gradient based method for identifier replacement, use the best possible structureal transformation available.
+Metrics:
+F1 score, Attack success rate (ASR)
+Effectiveness:
+Better than random baseline and slightly better than AO-RS. Why not compared to yefet et al?
+Victim models:
+LSTM-based seq2seq
+GRU-based seq2seq
+Downstream languages:
+java
+Downstream tasks:
+method name prediction
+Dataset:
+java-small
+CSN-Java
+Challenges/Future work:
+only method name prediction, only seq2seq no applicable to every language, whitebox
+What makes this paper unique:
+applied white-box attack with structural transformations.
+},
+	file = {IEEE Xplore Abstract Record:files/318/9763729.html:text/html;IEEE Xplore Full Text PDF:files/317/Chen et al. - 2022 - Generating Adversarial Source Programs Using Important Tokens-based Structural Transformations.pdf:application/pdf},
+}
+
+@inproceedings{tian_generating_2021,
+	title = {Generating {Adversarial} {Examples} of {Source} {Code} {Classification} {Models} via {Q}-{Learning}-{Based} {Markov} {Decision} {Process}},
+	url = {https://ieeexplore.ieee.org/document/9724884},
+	doi = {10.1109/QRS54544.2021.00090},
+	abstract = {Adversarial robustness becomes an essential concern in Deep Learning (DL)-based source code processing, as DL models are vulnerable to the deception by attackers. To address a new challenge posed by the discrete and structural nature of source code to generate adversarial examples for DL models, and the insufficient focus of existing methods on code structural features, we propose a Q-Learning-based Markov decision process (QMDP) performing semantically equivalent transformations on the source code structure. Two key issues are mainly addressed: (i) how to perform attacks on source code structural information and (ii) what transformations to perform when and where in the source code. We demonstrate that effectively tackling these two issues is crucial for generating adversarial examples for source code. By evaluating C/C++ programs working on the source code classification task, we verified that QMDP can effectively generate adversarial examples and improve the robustness of DL models over 44\%.},
+	urldate = {2024-09-18},
+	booktitle = {2021 {IEEE} 21st {International} {Conference} on {Software} {Quality}, {Reliability} and {Security} ({QRS})},
+	author = {Tian, Junfeng and Wang, Chenxin and Li, Zhen and Wen, Yu},
+	month = dec,
+	year = {2021},
+	note = {ISSN: 2693-9177},
+	keywords = {Semantics, Syntactics, Training, Codes, adversarial examples, deep learning, source code, adversarial training, Markov processes, robustness, Software quality, XML},
+	pages = {807--818},
+	annote = {Transformations:
+declaration spliting
+initialization splitting
+declaration initialization syncing
+multi-variable assignments splitting
+multi-variable assignment merge
+input api transformation (scanf -{\textgreater} cin)
+output api transformation (printf {\textgreater} cout)
+self-increasing expression unfolding
+prefix/suffix operator swapping
+fow/while transformation
+if statement cascading
+if statement splitting
+switch/if transformation
+ternary if transformation
+Strategy:
+Formulate the problem of finding an adversarial sample as an MDP. Then use some kind of Q-learning algorithm to create adversarial samples
+Metrics:
+Attack success rate (ASR), Validity (can still be compiled, always 100\%?), Succ (probability that the attack is succwesful, while the adversarial samples are valid), Accuracy (percentage of correct classification in the test set), Cross-entropy loss
+Effectiveness:
+bit higher success rate than MHM
+Victim models:
+LSTM
+ASTNN
+Downstream languages:
+c/c++
+Downstream tasks:
+code functionality classification
+Dataset:
+OJ
+Challenges/Future work:
+dataset from competition and not from real-world files
+should be done for other tasks.
+What makes this paper unique:
+Reinforcement learning used to optimize the transformations
+
+},
+	file = {IEEE Xplore Abstract Record:files/321/9724884.html:text/html;IEEE Xplore Full Text PDF:files/320/Tian et al. - 2021 - Generating Adversarial Examples of Source Code Classification Models via Q-Learning-Based Markov Dec.pdf:application/pdf},
+}
+
+@inproceedings{ferretti_deceiving_2021,
+	address = {New York, NY, USA},
+	series = {{GECCO} '21},
+	title = {Deceiving neural source code classifiers: finding adversarial examples with grammatical evolution},
+	isbn = {978-1-4503-8351-6},
+	shorttitle = {Deceiving neural source code classifiers},
+	url = {https://dl.acm.org/doi/10.1145/3449726.3463222},
+	doi = {10.1145/3449726.3463222},
+	abstract = {This work presents an evolutionary approach for assessing the robustness of a system trained in the detection of software vulnerabilities. By applying a Grammatical Evolution genetic algorithm, and using the output of the system being assessed as the fitness function, we show how we can easily change the classification decision (i.e. vulnerable or not vulnerable) for a given instance by simply injecting evolved features that in no wise affect the functionality of the program. Additionally, by means of the same technique, that is by simply modifying the program instances, we show how we can significantly decrease the accuracy measure of the whole system on the dataset used for the test phase.Finally we remark that these methods can be easily customized for applications in different domains and also how the underlying ideas can be exploited for different purposes, such as the exploration of the behaviour of a generic neural system.},
+	urldate = {2024-09-18},
+	booktitle = {Proceedings of the {Genetic} and {Evolutionary} {Computation} {Conference} {Companion}},
+	publisher = {Association for Computing Machinery},
+	author = {Ferretti, Claudio and Saletta, Martina},
+	month = jul,
+	year = {2021},
+	pages = {1889--1897},
+	annote = {Transformations:
+add code of other program after return statements
+Strategy:
+use a genetic algorithm and inject code of other programs into each other.
+Metrics:
+accuracy, P/R-AUC, F1,
+Effectiveness:
+yes, hard to compare
+Victim models:
+their own model
+Downstream languages:
+C
+Downstream tasks:
+vulnerability detection
+Dataset:
+VDISC https://osf.io/d45bw/
+Challenges/Future work:
+could be used for understanding neural network behaviour, more transformations
+What makes this paper unique:
+Evolutionary approach and insert part of one program into the other for model deceiving.
+},
+	file = {Full Text PDF:files/323/Ferretti and Saletta - 2021 - Deceiving neural source code classifiers finding adversarial examples with grammatical evolution.pdf:application/pdf},
+}
+
+@inproceedings{liu_alanca_2024,
+	title = {{ALANCA}: {Active} {Learning} {Guided} {Adversarial} {Attacks} for {Code} {Comprehension} on {Diverse} {Pre}-trained and {Large} {Language} {Models}},
+	shorttitle = {{ALANCA}},
+	url = {https://ieeexplore.ieee.org/abstract/document/10589851},
+	doi = {10.1109/SANER60148.2024.00067},
+	abstract = {Neural code models have demonstrated their efficacy across a range of code comprehension tasks, including vulnerability detection, code classification, automatic code summarization, completion, clone detection, etc. Yet, a substantial gap exists in our understanding of the robustness of models in the realm of code comprehension and its associated applications. To probe and illuminate the robustness of code, recent efforts have sought to employ NLP-like techniques to craft adversarial code instances, primarily by perturbing variable and token names. It's worth noting that the semantics of source code predominantly surface through its structural elements, such as abstract syntax trees and control flow graphs, which fundamentally differ from natural languages. The question remains open: Can we perturb the structural aspects of code while preserving its semantics, thereby generating more disruptive adversarial examples that elude current structural-unaware approaches? Moreover, orchestrating adaptive adversarial attacks on diverse neural code models with varying architectures poses formidable challenges, especially in real-world scenarios characterized by constraints on target model access and querying. In this paper, we introduce ALANCA, an active-learning guided adversarial attack framework tailored for neural code models. Leveraging semantic-preserving translations, combined with an adaptive adversarial discriminator and token selector, ALANCA excels in executing adversarial attacks with high success rates, exceptional generation quality, and adaptability across different target models. We substantiate ALANCA's efficacy through comprehensive evaluations across four distinct code comprehension tasks, demonstrating its ability to effectively confound a range of neural models, including pre-trained models and LLMs used in software engineering.},
+	urldate = {2024-09-18},
+	booktitle = {2024 {IEEE} {International} {Conference} on {Software} {Analysis}, {Evolution} and {Reengineering} ({SANER})},
+	author = {Liu, Dexin and Zhang, Shikun},
+	month = mar,
+	year = {2024},
+	note = {ISSN: 2640-7574},
+	keywords = {Robustness, Semantics, Syntactics, Analytical models, Codes, Source coding, Adaptation models, AI for Software Engineering, AI Security, Software testing and debugging},
+	pages = {602--613},
+	annote = {Transformations:
+rename subtoken of variable with similar token
+rename subtoken of parameter with similar token
+insert dead code or unused variable with suitable tokens
+add a print with suitable tokens
+wrap code in do while false
+reorder independent statments
+convert for/while
+change == operator parameters.
+Strategy:
+Try ast-based mutations, determine which are most likely to be effective, substitute tokens?
+Metrics:
+Bleu, Delta-bleu, Accuracy, f1-score, ASR, Robustness
+Effectiveness:
+more effective than BERT-Attack and Code-Attack
+Victim models:
+Code2vec, code2seq, codeBERT, GraphCoderBERT, PLBART, CodeT5, GPT-3.5, ChatGLM 2
+Downstream languages:
+Java
+Downstream tasks:
+code summarization (comment)
+Method name prediction
+Code classification,
+clone detection
+Dataset:
+CodeSearchNet
+Java-med
+Java250 from CodeNet
+BigCloneBench
+
+Challenges/Future work:
+not mentioned
+What makes this paper unique:
+ALANCA, learning guided framework, with several steps, supposedly more effective.
+},
+	file = {IEEE Xplore Abstract Record:files/326/10589851.html:text/html;IEEE Xplore Full Text PDF:files/325/Liu and Zhang - 2024 - ALANCA Active Learning Guided Adversarial Attacks for Code Comprehension on Diverse Pre-trained and.pdf:application/pdf},
+}
+
+@article{wei_cocofuzzing_2023,
+	title = {{CoCoFuzzing}: {Testing} {Neural} {Code} {Models} {With} {Coverage}-{Guided} {Fuzzing}},
+	volume = {72},
+	issn = {1558-1721},
+	shorttitle = {{CoCoFuzzing}},
+	url = {https://ieeexplore.ieee.org/abstract/document/9916170},
+	doi = {10.1109/TR.2022.3208239},
+	abstract = {Deep learning (DL)-based code processing models have demonstrated good performance for tasks such as method name prediction, program summarization, and comment generation. However, despite the tremendous advancements, DL models are frequently susceptible to adversarial attacks, which pose a significant threat to the robustness and generalizability of these models by causing them to misclassify unexpected inputs. To address the issue above, numerous DL testing approaches have been proposed; however, these approaches primarily target testing DL applications in the domains of image, audio, and text analysis, etc., and cannot be “directly applied” to “neural models for code” due to the unique properties of programs. In this article, we propose a coverage-based fuzzing framework, CoCoFuzzing, for testing DL-based code processing models. In particular, we first propose 10 mutation operators to automatically generate validly and semantically preserving source code examples as tests, followed by a neuron coverage (NC)-based approach for guiding the generation of tests. The performance of CoCoFuzzing is evaluated using three state-of-the-art neural code models, i.e., NeuralCodeSum, CODE2SEQ, and CODE2VEC. Our experiment results indicate that CoCoFuzzing can generate validly and semantically preserving source code examples for testing the robustness and generalizability of these models and enhancing NC. Furthermore, these tests can be used for adversarial retraining to improve the performance of neural code models.},
+	number = {3},
+	urldate = {2024-09-18},
+	journal = {IEEE Transactions on Reliability},
+	author = {Wei, Moshi and Huang, Yuchao and Yang, Jinqiu and Wang, Junjie and Wang, Song},
+	month = sep,
+	year = {2023},
+	note = {Conference Name: IEEE Transactions on Reliability},
+	keywords = {Software, Testing, Task analysis, Codes, robustness, Biological neural networks, Code model, deep learning (DL), Fuzzing, fuzzy logic, language model, Neurons},
+	pages = {1276--1289},
+	annote = {Transformations:
+Insert unused variable declaration 8 random chars
+rewrite variable and add and delete value or add zero
+duplicate assignment statement
+insert unreachable branch into block content?
+rename variable with random characters
+Strategy:
+select transformations that activate the highest number of new neurons, experiment with max amount of transformations
+Metrics:
+BLEU, F1
+Effectiveness:
+Code2Vec/Code2seq are not really impacted that much
+Victim models:
+NeuralCodeSum, code2vec, code2seq
+Downstream languages:
+Java
+Downstream tasks:
+Javadoc comment generation
+Dataset:
+NeuralCodeSum, Java-small
+Challenges/Future work:
+What makes this paper unique:
+CoCoFuzzing, white-box
+},
+	file = {IEEE Xplore Abstract Record:files/329/9916170.html:text/html;IEEE Xplore Full Text PDF:files/328/Wei et al. - 2023 - CoCoFuzzing Testing Neural Code Models With Coverage-Guided Fuzzing.pdf:application/pdf},
+}
+
+@article{ge_robustnpr_2024,
+	title = {{RobustNPR}: {Evaluating} the robustness of neural program repair models},
+	volume = {36},
+	copyright = {© 2023 John Wiley \& Sons Ltd.},
+	issn = {2047-7481},
+	shorttitle = {{RobustNPR}},
+	url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/smr.2586},
+	doi = {10.1002/smr.2586},
+	abstract = {Due to the high cost of repairing defective programs, many researches focus on automatic program repair (APR). In recent years, the new trend of APR is to apply neural networks to mine the relations between defective programs and corresponding patches automatically, which is known as neural program repair (NPR). The community, however, ignores some important properties that could impact the applicability of NPR systems, such as robustness. For semantic-identical buggy programs, NPR systems may produce totally different patches. In this paper, we propose an evaluation tool named RobustNPR, the first NPR robustness evaluation tool. RobustNPR employs several mutators to generate semantic-identical mutants of defective programs. For an original defective program and its mutant, it checks two aspects of NPR: (a) Can NPR fix mutants when it can fix the original defective program? and (b) can NPR generate semantic-identical patches for the original program and the mutant? Then, we evaluate four SOTA NPR models and analyze the results. From the results, we find that even for the best-performing model, 20.16\% of the repair success is unreliable, which indicates that the robustness of NPR is not perfect. In addition, we find that the robustness of NPR is correlated with model settings and other factors.},
+	language = {en},
+	number = {4},
+	urldate = {2024-09-18},
+	journal = {Journal of Software: Evolution and Process},
+	author = {Ge, Hongliang and Zhong, Wenkang and Li, Chuanyi and Ge, Jidong and Hu, Hao and Luo, Bin},
+	year = {2024},
+	note = {\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/smr.2586},
+	keywords = {robustness, model evaluation, neural program repair},
+	pages = {e2586},
+	annote = {They mention that a robust NPR model should have two properties:
+a) If a defective program A can be successfully repaired, then any semantically equivalent program A’ can also be successfully repaired.
+b) For a defective program A and any semantically equivalent program A’, NPR(A) and NPR(A’) should be semantically equivalent.
+
+multiple outputs for NPR model
+
+To determine whether a program is successfully repaired, they apply the string-identical test, which tests whether the patch perfectly matches the human fix. (This can be improved)
+
+They apply a method called DIversity to tackle a). They use the string-identical test to find successfully repaired programs, mutate them and then feed them into the model. Afterwards, they apply the inverse mutation and check whether the output is string identical. These models output multiple patches. One correct patch is enough. This is done with BFP Tufanos dataset, which is from bug-fixing commits.
+They apply a method called Behavior to tackle b). This basically boils down to testing that for all inputs, the top output results in the same test behavior. This is done with Defects4J
+
+They use single-line methods, since some models only work with single-line models (perfect localization)
+
+Table shows the amount of successful bug fixes for their experiment compared to the original. I think the purpose is to show that the training data is of sufficient quality.
+
+They find a clear robustness problem, and find that AST-based models are less robust under AST transformations. Indication of the buggy line is important. data processing also plays a big factor. Changing the buggy line versus changing context also has a big impact.
+
+Metamorphic testing for data leakage?
+They also explicitly mention metamorphic testing
+},
+	annote = {Transformations:
+rename variable to first letter, first letter of each word or just change first letter to lowercase
+Cast its own type
+add random variable with random type at random position. (call it unusedTYPE)
+Add a new variable, initialize it as a reference to the original variable and propagate. Give the variable the name of the class?
+Strategy:
+single-place transformation? (unclear)
+Metrics:
+percentage of fail in all mutants
+percentage of fail only after mutation
+percentage of diff between mutants
+percentage of diff between original and mutant
+Effectiveness:
+mildly effective (30\%)
+Victim models:
+Tufano, CoCoNut, SequenceR, Recoder
+Downstream languages:
+Java
+Downstream tasks:
+code repair
+Dataset:
+BFP by tupano, Defects4J
+Challenges/Future work:
+improve NPR
+What makes this paper unique:
+perform it with neural code repair
+
+},
+	file = {Full Text PDF:files/356/Ge et al. - 2024 - RobustNPR Evaluating the robustness of neural program repair models.pdf:application/pdf;Snapshot:files/358/smr.html:text/html},
+}
+
+@article{liu_practical_2021,
+	title = {A {Practical} {Black}-{Box} {Attack} on {Source} {Code} {Authorship} {Identification} {Classifiers}},
+	volume = {16},
+	issn = {1556-6021},
+	url = {https://ieeexplore.ieee.org/document/9454564},
+	doi = {10.1109/TIFS.2021.3080507},
+	abstract = {Existing researches have recently shown that adversarial stylometry of source code can confuse source code authorship identification (SCAI) models, which may threaten the security of related applications such as programmer attribution, software forensics, etc. In this work, we propose source code authorship disguise (SCAD) to automatically hide programmers' identities from authorship identification, which is more practical than the previous work that requires to known the output probabilities or internal details of the target SCAI model. Specifically, SCAD trains a substitute model and develops a set of semantically equivalent transformations, based on which the original code is modified towards a disguised style with small manipulations in lexical features and syntactic features. When evaluated under totally black-box settings, on a real-world dataset consisting of 1,600 programmers, SCAD induces state-of-the-art SCAI models to cause above 30\% misclassification rates. The efficiency and utility-preserving properties of SCAD are also demonstrated with multiple metrics. Furthermore, our work can serve as a guideline for developing more robust identification methods in the future.},
+	urldate = {2024-10-03},
+	journal = {IEEE Transactions on Information Forensics and Security},
+	author = {Liu, Qianjun and Ji, Shouling and Liu, Changchang and Wu, Chunming},
+	year = {2021},
+	note = {Conference Name: IEEE Transactions on Information Forensics and Security},
+	keywords = {Syntactics, Perturbation methods, Tools, Transforms, Training, Predictive models, Feature extraction, Source code, adversarial stylometry, authorship identification},
+	pages = {3620--3633},
+	annote = {Transformations:
+Trivial transformations
+remove unused code
+split/aggregate declarations/definitions
+split/aggregate elaborate type declaration
+scramble identifiers
+replace type alias with original type name
+use alternative tokens (\&\& -{\textgreater} and)
+swap operands (b{\textgreater}a -{\textgreater} a{\textless}b)
+use converse-negative expression (a{\textgreater}b -{\textgreater} !a({\textless}=b))
+use equivalent computations
+
+data transformations:
+use typeid expression for dynamic typing
+use a cast expression to the same type
+convert int literals into mathematical expression
+convert int into hexadecimal
+conver char literal to ascii
+convert string literal to char array
+convert bool to int
+
+control flow transformations:
+convert for/while
+convert if-else/switch
+convert if-else to conditional
+split conditions of if statements
+swap if/else body
+
+function transformations:
+reorder function arguments
+add function arguments
+merge function arguments as struct members
+convert assignment operators into a function with a reference
+convert binary expressions into function (+,- etc)
+hide API call into user-defined function
+
+add bogus code (not clear how this is found)
+add temporary variables for array indexes and return statements
+add redundant operands: (a * b -{\textgreater} a * b * c/2 where c=2)
+add libraries
+add type alias
+add global declarations
+add function declarations
+Strategy:
+Train a substitute model to make it white-box. Then use that to decide what transformations will have the largest impact. Keep going until the substitute classifier flips.
+Metrics:
+amount of transformations, percentage of changed LoC, time used per adversarial instance
+misclassification rate
+Effectiveness:
+seems effective but is not compared to sota methods
+Victim models:
+RFC, RNN-RFC
+Downstream languages:
+C++
+Downstream tasks:
+code authorship attribution
+Datasets:
+Google code jam 2012-2017
+Challenges/Future work:
+accuracy is still higher than random guess, output verification does not guarantee program equivalence.
+incorporate more global transformations. adapt generative adversarial networks to source code.
+insert functions as bogus code in the header
+What makes this paper unique:
+classifies transformations into trivial, data, control flow, function, add bogus code, they also show the effectiveness per transformation.
+authorship disguising works black-box.
+},
+	file = {Full Text PDF:files/463/Liu et al. - 2021 - A Practical Black-Box Attack on Source Code Authorship Identification Classifiers.pdf:application/pdf;IEEE Xplore Abstract Record:files/464/9454564.html:text/html},
+}
