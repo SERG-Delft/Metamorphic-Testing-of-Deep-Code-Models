@@ -1251,7 +1251,7 @@
             "PaLM 2"
         ],
         "downstream_languages": [
-            "Python"
+            "Java"
         ],
         "downstream_tasks": [
             "Code Completion"
