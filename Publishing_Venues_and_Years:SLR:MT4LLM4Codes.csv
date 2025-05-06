@@ -1,0 +1,46 @@
+Title;Venue;Year
+Assessing Robustness of ML-Based Program Analysis Tools using Metamorphic Program Transformations;ASE;2021
+Searching for Quality: Genetic Algorithms and Metamorphic Testing for Software Engineering ML;GECCO;2023
+Evolutionary Multi-objective Optimization for Contextual Adversarial Example Generation;FSE;2024
+Discrete Adversarial Attack to Models of Code;PLDI;2023
+Adversarial Examples for Models of Code;FSE;2020
+Adversarial Robustness of Deep Code Comment Generation;TOSEM;2022
+Natural Attack for Pre-Trained Models of Code;ICSE;2022
+Two Sides of the Same Coin: Exploiting the Impact of Identifiers in Neural Code Comprehension;ICSE;2023
+ContraBERT: Enhancing Code Pre-Trained Models via Contrastive Learning;ICSE;2023
+Generating Adversarial Computer Programs using Optimized Obfuscations;arXiv;2021
+ClawSAT: Towards Both Robust and Accurate Code Models;SANER;2023
+Code Difference Guided Adversarial Example Generation for Deep Code Models;ASE;2023
+Semantic Robustness of Models of Source Code;SANER;2022
+Generating Adversarial Examples for Holding Robustness of Source Code Processing Models;AAAI;2020
+Adversarial Robustness for Code;ICML;2020
+Towards Robustness of Deep Program Processing Models;TOSEM;2022
+On the Generalizability of Neural Program Models with Respect to Semantic-Preserving Program Transformations;IST Journal;2021
+Challenging Machine Learning-Based Clone Detectors via Semantic-Preserving Code Transformations;TSE;2023
+DIP: Dead Code Insertion based Black-box Attack for Programming Language Model;ACL;2023
+Misleading Authorship Attribution of Source Code using Adversarial Learning;USENIX Security;2019
+CCTEST: Testing and Repairing Code Completion Systems;ICSE;2023
+Contrastive Code Representation Learning;EMNLP;2021
+Adversarial Attack and Robustness Improvement on Code Summarization;EASE;2024
+CodeBERT-Attack: Adversarial Attack Against Source Code Deep Learning Models via Pre-Trained Model;Wiley Journal;2024
+Exploiting the Adversarial Example Vulnerability of Transfer Learning of Source Code;TIFS;2024
+Generating Adversarial Source Programs Using Important Tokens-Based Structural Transformations;ICECCS;2022
+Generating Adversarial Examples of Source Code Classification Models via Q-Learning-Based Markov Decision Process;QRS;2021
+Deceiving Neural Source Code Classifiers: Finding Adversarial Examples with Grammatical Evolution;GECCO;2021
+ALANCA: Active Learning Guided Adversarial Attacks for Code Comprehension on Diverse Pre-Trained and Large Language Models;SANER;2024
+CoCoFuzzing: Testing Neural Code Models With Coverage-Guided Fuzzing;TR;2022
+RobustNPR: Evaluating the Robustness of Neural Program Repair Models;Wiley Journal;2024
+A Practical Black-Box Attack on Source Code Authorship Identification Classifiers;TIFS;2021
+Black-box Adversarial Example Attack towards FCG Based Android Malware Detection under Incomplete Feature Information;USENIX Security;2023
+Exploiting Code Symmetries for Learning Program Semantics;ICML;2024
+STRATA: Simple, Gradient-Free Attacks for Models of Code;arXiv;2020
+Evaluating Program Repair with Semantic-Preserving Transformations: A Naturalness Assessment;arXiv;2024
+Adversarial Attacks on Code Models with Discriminative Graph Patterns;arXiv;2023
+Transfer Attacks and Defenses for Large Language Models on Coding Tasks;arXiv;2023
+Assessing and Improving Syntactic Adversarial Robustness of Pre-trained Models for Code Translation;IST Journal;2023
+Towards Making Deep Learning-based Vulnerability Detectors Robust;arXiv;2021
+Semantic-Preserving Adversarial Code Comprehension;ACL;2022
+A Closer Look into Transformer-Based Code Intelligence Through Code Transformation;arXiv;2022
+Testing Neural Program Analyzers;arXiv;2019
+Evaluation of Generalizability of Neural Program Analyzers under Semantic-Preserving Transformations;arXiv;2020
+Do Large Code Models Understand Programming Concepts? A Black-box Approach;ICML;2024
